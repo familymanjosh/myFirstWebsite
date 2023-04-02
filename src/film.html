@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JokeBook</title>
+    <script defer src="film.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/92930ce73e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="filmStyle.css" />
+</head>
+
+<body>
+    <div id="userInfoDiv">
+        <form id="create-account-form">
+            <h5 class="userInfoLabel">Create an Account</h5>
+            <input type="text" placeholder="Enter Username" name="newUserName" required>
+            <br>
+            <input type="password" placeholder="Enter Password" name="newPassword" required>
+            <br>
+            <button type="submit" id="createAccountButton">Create Account</button>
+        </form>
+        <h1 id="title">JokeBook</h1>
+        <form id="login-form">
+            <h5 class="userInfoLabel">Login</h5>
+            <input type="text" placeholder="Enter Username" name="userName" required>
+            <br>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <br>
+            <button type="submit" id="loginButton">Login</button>
+        </form>
+    </div>
+    <h4 id="intro">With help from our friends at <a href="https://sv443.net/jokeapi/v2/" target="_blank" style="color: white; text-decoration: none"><em>jokeapi.dev</em></a>, you can enjoy all the jokes you'd like, one laugh at a time!
+        <br>Simply click to generate a joke at random, upvote for the good ones and downvote for the not-so-good ones.
+        <br>If you <em>REALLY</em> like a joke and want to save it for later, make sure to create an account and bookmark it for later!
+    </h4>
+    <div id="category-menu-div">
+        <h2 id="category-menu-title">Click Below for a Joke:</h2>
+        <p id="category-menu"><span id="Programming" class="catSpan">Programming</span> <span id="Pun" class="catSpan">Puns</span> <span id="Spooky" class="catSpan">Spooky</span> <span id="Christmas" class="catSpan">Christmas</span> <span id="Misc" class="catSpan">Other</span> <span id="Any" class="catSpan">Random</span></p>
+    </div>
+    <div id="joke-display" class="newSection">
+        <span id="joke-setup" class="joke-label"></span>
+        <br><br>
+        <span id="joke-punchline" class="joke-label"></span>
+        <br><br>
+    </div>
+    <div id="feedback" class="newSection">
+        <p id="total-likes">Total Laughs Had: <span id="like-counter">0</span></p>
+        <i id="like-btn" class="btn fa-regular fa-thumbs-up"></i>
+        <i id="dislike-btn" class="btn fa-regular fa-thumbs-down"></i>
+        <i id="bookmark-btn" class="btn fa-regular fa-bookmark"></i>
+    </div>
+    <div id="submit-form-div" class="newSection">
+        <h3 id="submit-form-title">Submit a Joke!</h3>
+        <form id="submit-joke">
+            <input type="text" class="jokeInput" id="joke-name-input" name="name" placeholder="Your Name" required>
+            <br>
+            <input type="text" class="jokeInput" id="joke-category-input" name="category" placeholder="Joke Category" required>
+            <br>
+            <textarea class="jokeInput" id="joke-setup-input" name="setup" placeholder="Joke Setup" rows="2" required></textarea>
+            <br>
+            <textarea class="jokeInput" id="joke-punchline-input" name="punchline" placeholder="Joke Punchline" rows="2" required></textarea>
+            <br>
+            <button type="submit" id="submit-joke-btn" class="btn normal-btn" name="submit-joke">Submit Joke</button>
+        </form>
+    </div>
+    <div id="film-library" class="newSection">
+        <label for="joke-dropdown"><strong>See Your Joke Library Here:</strong></label>
+        <br>
+        <select id="film-dropdown" name="select-category">
+            <option class="option" value="Select-Category">Select Category</option>
+            <option class="option" value="Programming">Programming</option>
+            <option class="option" value="horror">Pun</option>
+            <option class="option" value="Spooky">Spooky</option>
+            <option class="option" value="Christmas">Christmas</option>
+            <option class="option". value="Misc">Misc</option>
+        </select>
+    </div>
+    <div id="joke-library-display"></div>    
+    <footer>
+        
+        Flatiron School Phase 1 Project, 2023
+    </footer>
+</body>
+</html>

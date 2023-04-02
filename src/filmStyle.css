@@ -1,0 +1,208 @@
+body {
+    margin: auto;
+    text-align: center;
+    font-family: monospace;
+    color: white;
+    background-image: url('circle-scatter-haikei.png');
+}
+
+h2, .newSection, #category-menu-div {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 4rem;
+    margin: 10vh 0 7.5vh 0;
+}
+
+.btn, select, #joke-dropdown, .catSpan, #createAccountButton, #loginButton {
+    cursor: pointer;
+}
+
+/* CSS In Relative Order */
+
+/* User Information */
+
+#userInfoDiv {
+    display: flex;
+    justify-content:space-around;
+}
+
+.userInfoLabel {
+    font-size: 2.5rem;
+    margin-bottom: 2vh;
+}
+
+#userInfoDiv input {
+    border-radius: 25px;
+    text-align: center;
+    scale: 1.5;
+    margin: 2vh 0 2vh 0;
+}
+#login-form {
+    width: 373.87px;
+}
+
+#createAccountButton, #loginButton {
+    color: white;
+    background-color: #D12C49;
+    border-radius: 15px;
+    scale: 1.25;
+    padding: 0.5vh 1vh 0.5vh 1vh;
+    margin-top: 1vh;
+}
+
+.userInfo {
+    font-size: 1.5rem;
+}
+
+/* Title and Intro */
+
+#title {
+    font-size: 5rem;
+    margin: 7.5vh 0 5vh 0;
+    position: absolute;
+}
+
+#intro {
+    font-size: 1.5rem;
+    margin: 5vh 0 7.5vh 0;
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+/* Categories and Joke Display */
+
+.catSpan {
+    display: inline-block;
+    font-size: 2rem;
+    border: solid 1px #D12C49;
+    border-radius: 15px;
+    padding: 5px 12.5px 5px 12.5px;
+    background-color: #D12C49;
+}
+
+.selected {
+    animation: menuBounce 100s 1;
+}
+
+@keyframes menuBounce {
+    0% {transform: translateY(0)}
+    0.5% {transform: translateY(-10px)}
+    1% {transform: translateY(0)}
+    100% {transform: translateY(0)}
+}
+
+#joke-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10vh auto 10vh auto;
+}
+
+#joke-punchline {
+    font-size: 1.75rem;
+    margin-top: 5vh;
+}
+
+.revealed-span {
+    border: 5px solid white;
+    padding: 10px 25px 10px 25px;
+    border-radius: 10px;
+}
+
+/* Joke Feedback Buttons and their Animations */
+
+#total-likes {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fa-regular {
+    margin: 2rem;
+    scale: 1.5;
+}
+
+.clicked{
+    animation: enlargeButton 1s;
+}
+
+@keyframes enlargeButton {
+    0% {scale: 1.5}
+    50% {scale: 2}
+    100% {scale: 1.5}
+}
+
+.gold {
+    color: #f9d306;
+}
+
+/* Joke Form */
+
+.jokeInput {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 0 0 5vh 0;
+    width: 25vw;
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    resize: none;
+}
+
+.jokeInput::-webkit-scrollbar {
+    display: none;
+}
+
+textarea::placeholder {
+    line-height: 50px;
+}
+
+.normal-btn {
+    background-color: #D12C49;
+    scale: 2;
+    padding: 10px 15px 10px 15px;
+    margin-bottom: 10vh;
+    border-radius: 10px;
+    border-color: #D12C49;
+    color: white;
+}
+
+option {
+    font-size: 1.5rem;
+}
+
+#joke-dropdown {
+    scale: 2.5;
+    margin: 10vh 0 7.5vh 0;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#joke-library-display div {
+    padding-bottom: 2vh;
+    font-size: 2rem;
+}
+
+.revealed-text {
+    animation: revealJoke 100s;
+}
+
+@keyframes revealJoke {
+    0% {
+        border: 5px solid white;
+        border-radius: 10px;
+        padding: 10px 25px 10px 25px;
+        color: #001220;
+    }
+    1.5% {color: white; opacity: 1;}
+    100% {
+        border: 5px solid white;
+        border-radius: 10px;
+        padding: 10px 25px 10px 25px;
+        color: white; 
+    }
+}
+
+footer {
+    padding: 25vh 0 10vh 0;
+}
