@@ -1,6 +1,6 @@
 body{
     background-color: rgb(255, 255, 255);
-    background-image: url('assets/christian-mackie-cc0Gg3BegjE-unsplash.jpg');
+    background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/10/Wallpapers-Cabinet-HD-Free.jpg')
     background-repeat: no-repeat;
     background-attachment:fixed ;
     background-size: cover;
@@ -36,7 +36,7 @@ header h2{
     margin-top: 0.5vh;
     color: white;
     background-color: rgba(0, 0, 0, 0.308);
-    border: 2px solid #69cc00cc;
+    border: 2px solid #626569;
     width: 30vw;
     height: 2vh;
 }
@@ -45,7 +45,7 @@ header h2{
     background-color: rgba(0, 0, 0, 0.308);
     color: white;
     height: 2.5vh;
-    border: 2px solid #69cc00cc;
+    border: 2px solid #626569;
 
 }
 
@@ -108,7 +108,7 @@ header h2{
 
 .reciCard{
     cursor: pointer;
-    background-color: #69cc00c7;
+    background-color: 
     border: 3px solid rgba(255, 255, 255, 0.815);
     color: rgb(255, 255, 255);
     min-height: 15rem;
@@ -172,7 +172,7 @@ border: 2px solid rgba(255, 255, 255, 0.801);
 .reciPopUp{
     display: flex;
     flex-direction: row;
-    background-color: #69cc00c7;
+    background-color: #9EA3A8;
     border: 3px solid white;
     color: white;
     position: fixed;
@@ -205,7 +205,7 @@ border: 2px solid rgba(255, 255, 255, 0.801);
 .reciPopUpLeftDiv button{
     color: white;
     background-color: rgba(0, 0, 0, 0.37);
-    border: 2px solid hotpink;
+    border: 2px solid #E8E3DA, 0.808;
     margin-top: 3vmin;
     width: 60%;
     cursor: pointer;
@@ -227,7 +227,7 @@ border: 2px solid rgba(255, 255, 255, 0.801);
 .reciPopUpTopRightDiv button{
     background-color: rgba(0, 0, 0, 0.329);
     color: rgb(255, 255, 255);
-    border: 2px solid rgba(255, 105, 180, 0.808);
+    border: 2px solid #E8E3DA, 0.808;
     font-weight: bolder;
     font-size: 2vmin;
     height: 4vh;
@@ -259,7 +259,7 @@ border: 2px solid rgba(255, 255, 255, 0.801);
     width: 100%;
     transform: translate(-4vw, 0vh);
     text-decoration: underline;
-    text-decoration-color: hotpink;
+    text-decoration-color: #626569
     font-size: x-large;
 }
 
