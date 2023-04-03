@@ -1,0 +1,283 @@
+body{
+    background-color: rgb(255, 255, 255);
+    background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/10/Wallpapers-Cabinet-HD-Free.jpg');
+    background-repeat: no-repeat;
+    background-attachment:fixed ;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.39);
+    text-align: center;
+    height: 14vh;
+}
+
+header h1{
+    color: #cc000a;
+    background-color: rgba(0, 0, 0, 0.151);
+    /* font-family: 'Tilt Prism', cursive; */
+    font-family: 'Great Vibes', cursive;
+    font-size: 6vmin;
+    margin: 1vmin;
+
+}
+header h2{
+    color: white;
+    margin: 0;
+    font-family: 'Great Vibes', cursive;
+    font-weight: lighter;
+}
+
+#search{
+    margin-top: 0.5vh;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.308);
+    border: 2px solid #626569;
+    width: 30vw;
+    height: 2vh;
+}
+
+#searchBtn{
+    background-color: rgba(0, 0, 0, 0.308);
+    color: white;
+    height: 2.5vh;
+    border: 2px solid #626569;
+
+}
+
+
+#main{
+    display: flex;
+    flex-direction: row;
+}
+
+#favoritesSideBar{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.397);
+    width: 20%;
+}
+#favoritesSideBar h2 {
+    text-align: center;
+    font-size: larger;
+    border: 2px solid rgba(255, 255, 255, 0.801);
+    width: 100%;
+}
+
+
+#filterSideBar{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.397);
+    width: 20%;
+}
+
+
+.searchFilterLists{
+    /* justify-content: center; */
+    text-align: center;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.filterListHeading{
+    font-size: larger;
+    border: 2px solid rgba(255, 255, 255, 0.801);
+}
+
+.searchFilterListItem{
+    text-align: center;
+    cursor: pointer;
+    margin-top: 0.6vh;
+}
+
+
+
+.reciCard{
+    cursor: pointer;
+    background-color: 
+    border: 3px solid rgba(255, 255, 255, 0.815);
+    color: rgb(255, 255, 255);
+    min-height: 15rem;
+    margin: 1vmin;
+    margin-bottom: 2vmin;
+    display: flex;
+    flex-direction: row;
+}
+
+.reciCardInfo {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.reciCard img{
+border: 2px solid rgba(255, 255, 255, 0.801);
+
+}
+
+
+.reciCard h2{
+    order: -1;
+    text-align: center;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.185);
+    /* border: 2px solid white; */
+    padding: 1vmin; 
+}
+
+.reciCard ul{
+    list-style: none;
+    text-align: center;
+    line-height: 200%;
+    height: 148px;
+}
+
+.reciCard li{
+
+
+}
+
+.reciCard footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* padding-top: 1vh; */
+
+}
+
+.reciCard span{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.185);
+    border: 1px solid rgba(0, 0, 0, 0.034);
+    width: 33.3%;
+
+}
+
+.reciPopUp{
+    display: flex;
+    flex-direction: row;
+    background-color: #9EA3A8;
+    border: 3px solid white;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    height: 70vh;
+    width: 70vw;
+}
+
+
+
+.reciPopUpLeftDiv{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reciPopUpImg{
+    object-fit: contain;
+    border: 3px solid white;
+    max-width: 100%;
+    /* max-height: 50%; */
+    margin: 0;
+    padding: 0;
+}
+
+.reciPopUpLeftDiv button{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.37);
+    border: 2px solid #E8E3DA, 0.808;
+    margin-top: 3vmin;
+    width: 60%;
+    cursor: pointer;
+    font-size: x-large;
+    padding: 1vmin;
+
+}
+
+.reciPopUpTopRightDiv{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+}
+
+.reciPopUpTopRightDiv button{
+    background-color: rgba(0, 0, 0, 0.329);
+    color: rgb(255, 255, 255);
+    border: 2px solid #E8E3DA, 0.808;
+    font-weight: bolder;
+    font-size: 2vmin;
+    height: 4vh;
+    width: 4vw;
+    cursor: pointer;
+}
+
+.reciPopUpRightDiv{
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.reciPopUpTopRightDiv h2{
+    background-color: rgba(0, 0, 0, 0.404);
+    border: 2px solid white;
+    padding: 2vmin;
+    text-align: center;
+    margin-right: 4vw;
+    margin-left: 2vw;
+}
+
+.reciPopUpRightDiv ul caption{
+    display: block;
+    /* white-space: nowrap; */
+    font-weight: bolder;
+    margin: 2vmin;
+    width: 100%;
+    transform: translate(-4vw, 0vh);
+    text-decoration: underline;
+    text-decoration-color: #626569
+    font-size: x-large;
+}
+
+.reciPopUpRightDiv ul{
+list-style: square;
+font-size: 1.5vmin;
+background-color: rgba(0, 0, 0, 0.253);
+border-radius: 10%;
+vertical-align: middle;
+margin: 1vmin;
+}
+
+.reciPopUpRightDiv li{
+    margin-bottom: 1vmin;
+}
+
+.reciFavCard{
+    border: 3px solid rgba(255, 255, 255, 0.856);
+    cursor: pointer;
+}
+
