@@ -17,10 +17,10 @@ header{
 }
 
 header h1{
-    color: #69cc00;
+    color: 
     background-color: rgba(0, 0, 0, 0.151);
     /* font-family: 'Tilt Prism', cursive; */
-    font-family: 'Great Vibes', cursive;
+    font-family: 'The Ultimate Recipe Finder', cursive;
     font-size: 6vmin;
     margin: 1vmin;
 
@@ -28,7 +28,7 @@ header h1{
 header h2{
     color: white;
     margin: 0;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'The Ultimate Recipe Finder', cursive;
     font-weight: lighter;
 }
 
