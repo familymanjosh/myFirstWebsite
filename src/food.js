@@ -32,3 +32,11 @@ const renderMeal = (meal) => {
     </div>`
     cards.append(card)
 }
+//Infinite Scroll
+window.addEventListener('scroll', () => {
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+  const loadPoint = (window.scrollY + 1200)
+  if(scrollableHeight < loadPoint){
+    console.log('More!')
+    throttledFetchReciSearch()
+}})
