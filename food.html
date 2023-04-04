@@ -23,15 +23,40 @@
         <button id="button" onclick="dropDown()" class="dropbtn">Recipe Subcatagories</button>
         <div id="myDropdown" class="dropdown-content">
           <a id="one" href="#">Ingredients</a>
+          <!-- <form id='searchForm1'>
+              <label id="searchType"></label>
+               <input id='search-Ing' type='text' name='search' placeholder="Enter Ingredient">
+                <input id=search-Ing-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
           <a id="two" href="#">Instructions</a>
+          <form id='searchForm2'>
+              <!-- <label id="searchType"></label>
+               <input id='search-inst' type='text' name='search' placeholder="Enter Instructions">
+                <input id=search-inst-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
           <a id="three" href="#">Catagories</a>
+          <!-- <form id='searchForm3'> -->
+              <!-- <label id="searchType"></label>
+               <input id='search-catagory' type='text' name='search' placeholder="Enter Catagory">
+                <input id=search-catagory-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
           <a id="four" href="#">Areas</a>
+          <!-- <form id='searchForm4'>
+              <label id="searchType"></label>
+               <input id='search-aria' type='text' name='search' placeholder="Enter Area">
+                <input id=search-aria-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
           <a id="five" href="#">FirstLetter</a>
+          <!-- <form id='searchForm5'>
+              <label id="searchType"></label>
+               <input id='fletter-search' type='text' name='search' placeholder="Enter First letter of Dish">
+                <input id=fletter-search-btn type='submit' name='submit' value="Search"/>
+               </form> -->
           <a id="six" href="#">Random dish</a>
     <div id="main">
         <div id="recipeMenu"></div>
         <div class="dropdown">
-          <button id="button" onclick="favedrop()" class="dropbtn">My Favorite Recipes</button>
+          <button id="button" onclick="dropDown()" class="dropbtn">My Favorite Recipes</button>
           <div id="myDropdown" class="dropdown-content">
             <a id="fave-1" href="#">""</a>
             <a id="fave-2" href="#">""</a>
@@ -46,25 +71,9 @@
           </div>
         </div>
       </div>
-  <div id="container1">
-  <div class="card">
-    <img id = "img" src="" alt="Image">
-    <div class="card-info">
-      <h2>Card Title</h2>
-      <p>Card description goes here</p>
-      <a href="#">Read more</a>
-    </div>
-  </div>
-</div>
-    <div id="container2">
-      <div class="card">
-        <div class="card-info">
-          <h2>Card Title</h2>
-          <p>Card description goes here</p>
-          <a href="#">Read more</a>
-        </div>
-      </div>
-    </div>
+    <div id="container1"></div>
+    <br>
+    <div id="container2"></div>
   </div>
 
  <!-- <h2>Your Snappily Named Recipe Search Tool</h2> -->
@@ -78,32 +87,9 @@
   <div id="filterSideBar">
   
       </div>
-      <!-- <form id='searchForm2'> -->
-        <!-- <label id="searchType"></label>
-         <input id='search-inst' type='text' name='search' placeholder="Enter Instructions">
-          <input id=search-inst-Btn type='submit' name='submit' value="Search"/>
-         </form> -->
-   <!-- <form id='searchForm1'>
-              <label id="searchType"></label>
-               <input id='search-Ing' type='text' name='search' placeholder="Enter Ingredient">
-                <input id=search-Ing-Btn type='submit' name='submit' value="Search"/>
-               </form> -->
-    <!-- <form id='searchForm3'> -->
-              <!-- <label id="searchType"></label>
-               <input id='search-catagory' type='text' name='search' placeholder="Enter Catagory">
-                <input id=search-catagory-Btn type='submit' name='submit' value="Search"/>
-               </form> -->
+
+
  <!-- Favorited Recipes Will Go Here. -->
-  <!-- <form id='searchForm4'>
-              <label id="searchType"></label>
-               <input id='search-aria' type='text' name='search' placeholder="Enter Area">
-                <input id=search-aria-Btn type='submit' name='submit' value="Search"/>
-               </form> -->
-                <!-- <form id='searchForm5'>
-              <label id="searchType"></label>
-               <input id='fletter-search' type='text' name='search' placeholder="Enter First letter of Dish">
-                <input id=fletter-search-btn type='submit' name='submit' value="Search"/>
-               </form> -->
  </div>  
 </div>
 <script src="src/apiKey.js"></script>
