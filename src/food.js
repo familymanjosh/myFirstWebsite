@@ -9,18 +9,20 @@ const menu = document.getElementById("container1")
 const searchBar = () => { 
     fetch(`${apiKey}search.php?s=${searchInput.value}`)
     .then(response => response.json())
-    .then(meal => {
-        console.log(meal)
+    .then(mealArr => {
+        console.log(mealArr)
+        mealArr.meals.forEach(meal => {
             renderRandomMeal(meal)
     })
+})
 }
 const renderRandomMeal = (meal) => {
-    const li = document.createElement("li")
+    const li = document.createElement("h1")
     li.textContent = meal.strMeal
     searchBtn.addEventListener("submit", (e) => {
         e.preventDefault()
 })
-menu.append(li)
+//menu.append(li)
 }
 
 const init = () => {
