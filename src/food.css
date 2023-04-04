@@ -54,41 +54,41 @@ header h2{
     flex-direction: row;
 }
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ef0000;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    height: 400px;
-    margin: 20px;
-  }
-  
-  .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  
-  .card-info {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .card-info h2 {
-    margin-top: 0;
-  }
-  
-  .card-info p {
-    margin-bottom: 20px;
-  }
-  
-  .card-info a {
-    color: #ff0101;
-    background-color: #5960e2;
-    border-radius: 5px;
-    padding: 10px 20px;
-    text
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 400px;
+  margin: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-info h2 {
+  margin-top: 0;
+}
+
+.card-info p {
+  margin-bottom: 20px;
+}
+
+.card-info a {
+  color: #fff;
+  background-color: #2196F3;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
