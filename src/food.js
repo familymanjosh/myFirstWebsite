@@ -5,6 +5,14 @@ const searchBtn = document.getElementById("btn")
 const menu = document.getElementsByClassName("card")
 const menuInfo = document.getElementById("card-info")
 const randomImage = document.getElementById("img")
+const cardName = document.getElementById("card-name")
+const cardArea = document.getElementById("card-area")
+const cardCategory = document.getElementById("card-category")
+const cardInstructions = document.getElementById("card-instructions")
+const cardIngredients = document.getElementById("card-ingredients")
+const cardMeasurements = document.getElementById("card-measure")
+allIngredients = []
+
 // fetches
     fetch(`${apiKey}search.php?s=${searchInput.value}`)
     .then(response => response.json())
@@ -12,11 +20,7 @@ const randomImage = document.getElementById("img")
         console.log(mealArr)
         let allMeals = mealArr.meals
         allMeals.forEach(meal => {
-            let newArr =  Object.keys(meal)
-            .filter((k) => meal[k] != null) // finding any value that == null
-            .reduce((a, k) => ({ ...a, [k]: meal[k] }), {}); // removing it from array
-            console.log(newArr)
-            renderRandomMeal(meal)
+            renderSearch(meal)
     })
 })
     fetch(`${apiKey}random.php`)
@@ -29,40 +33,41 @@ const randomImage = document.getElementById("img")
 })
 })
 const renderRandom = (meal) => {
-    const li = document.createElement("h2")
-    li.textContent = meal.strMeal
     randomImage.src = meal.strMealThumb
     randomImage.alt = meal.strMeal
-    const area = document.createElement("p")
-    area.textContent = meal.strArea
-    const category = document.createElement("p")
-    category.textContent = meal.strCategory
-    const instructions = document.createElement("p")
-    instructions.textContent = meal.strInstructions
-    const ingredients = document.createElement("p")
-    ingredients.textContent = meal.strIngredient1
-    const ingredients2 = document.createElement("p")
-    ingredients2.textContent = meal.strIngredient2
-    const ingredients3 = document.createElement("p")
-    ingredients3.textContent = meal.strIngredient3
-    const ingredients4 = document.createElement("p")
-    ingredients4.textContent = meal.strIngredient4
-    const ingredients5 = document.createElement("p")
-    ingredients5.textContent = meal.strIngredient5
-    const ingredients6 = document.createElement("p")
-    ingredients6.textContent = meal.strIngredient6
-    const ingredients7 = document.createElement("p")
-    ingredients7.textContent = meal.strIngredient7
-    const ingredients8 = document.createElement("p")
-    menuInfo.innerHtml = ""
-    menuInfo.append(li, area, category, instructions, ingredients, ingredients2, ingredients3, ingredients4, ingredients5, ingredients6, ingredients7, ingredients8)
+    cardName.textContent = meal.strMeal
+    cardArea.textContent = meal.strArea
+    cardInstructions.textContent = "Instructions: " + meal.strInstructions
+    cardIngredients.textContent = meal.strIngredient1 + ", " + meal.strIngredient2 + ", " + meal.strIngredient3 + ", " + meal.strIngredient4 + ", " + meal.strIngredient5 + ", " + meal.strIngredient6 + ", " + meal.strIngredient7 + ", " + meal.strIngredient8 + ", " + meal.strIngredient9 + ", " + meal.strIngredient10 + ", " + meal.strIngredient11 + ", " + meal.strIngredient12 + ", " + meal.strIngredient13 + ", " + meal.strIngredient14 + ", " + meal.strIngredient15 + ", " + meal.strIngredient16 + ", " + meal.strIngredient17 + ", " + meal.strIngredient18 + ", " + meal.strIngredient19 + ", " + meal.strIngredient20 
+    //cardCategory.textContent = meal.strCategory
+    cardMeasurements.textContent = meal.strMeasure1 + ", " + meal.strMeasure2 + ", " + meal.strMeasure3 + ", " + meal.strMeasure4 + ", " + meal.strMeasure5 + ", " + meal.strMeasure6 + ", " + meal.strMeasure7 + ", " + meal.strMeasure8 + ", " + meal.strMeasure9 + ", " + meal.strMeasure10 + ", " + meal.strMeasure11 + ", " + meal.strMeasure12 + ", " + meal.strMeasure13 + ", " + meal.strMeasure14 + ", " + meal.strMeasure15 + ", " + meal.strMeasure16 + ", " + meal.strMeasure17 + ", " + meal.strMeasure18 + ", " + meal.strMeasure19 + ", " + meal.strMeasure20
 }
 
-const renderRandomMeal = (meal) => {
-    const li = document.createElement("h1")
-    li.textContent = meal.strMeal
+const renderSearch = (meal) => {
     searchBtn.addEventListener("submit", (e) => {
         e.preventDefault()
-})
-//menu.append(li)
-}
+        randomImage.src = meal.strMealThumb
+        randomImage.alt = meal.strMeal
+        cardName.textContent = "Recipe: " + meal.strMeal
+        cardArea.textContent = meal.strArea
+        cardInstructions.textContent = "Instructions: " + meal.strInstructions
+        
+        // Filter out empty ingredient and measurement values
+        const ingredients = [];
+        const measurements = [];
+        for (let i = 1; i <= 20; i++) {
+            const ingredient = meal["strIngredient" + i];
+            const measurement = meal["strMeasure" + i];
+            if (ingredient && ingredient.trim() !== "") {
+                ingredients.push(ingredient);
+            }
+            if (measurement && measurement.trim() !== "") {
+                measurements.push(measurement);
+            }
+        }
+        
+        cardIngredients.textContent = "Ingredients: " + ingredients.join(", ");
+        cardMeasurements.textContent = "Measurements: " + measurements.join(", ");
+    });
+};
+

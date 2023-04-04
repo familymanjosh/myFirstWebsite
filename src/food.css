@@ -1,10 +1,10 @@
 body{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(248, 3, 3);
     background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/10/Wallpapers-Cabinet-HD-Free.jpg');
     background-repeat: no-repeat;
     background-attachment:fixed ;
     background-size: cover;
-    color: rgb(0, 0, 0);
+    color: rgb(6, 2, 2);
 
     font-family: 'Source Sans Pro', sans-serif;
 
@@ -54,15 +54,16 @@ header h2{
     flex-direction: row;
 }
 .card {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  height: 400px;
-  margin: 20px;
+  width: 500px;
+  height: 900px;
+  margin: 40px;
 }
 
 .card img {
