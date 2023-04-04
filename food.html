@@ -14,68 +14,81 @@
  <body>
   <header>
  <h1>Ultimate Recipe Finder</h1>
- <!-- <h2>Your Snappily Named Recipe Search Tool</h2> -->
-  <!-- <h3>Enter some keywords, maybe select some filters, you get the idea...</h3> -->
-
- </header>
  <div id= "displaymenu" style="text-align: center;">
-    <h1>Search and Dropdown Menu Example</h1>
     <form id="searchForm">
-      <input id="search" type="text" placeholder="Enter name">
+      <input id="search" type="text" placeholder="Search Recipe Name">
       <button id="btn" type="submit">Search</button>
     </form>
-    <br>
+    <div class="dropdown">
+        <button id="button" onclick="dropDown()" class="dropbtn">Recipe Subcatagories</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a id="one" href="#">Ingredients</a>
+          <!-- <form id='searchForm1'>
+              <label id="searchType"></label>
+               <input id='search-Ing' type='text' name='search' placeholder="Enter Ingredient">
+                <input id=search-Ing-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
+          <a id="two" href="#">Instructions</a>
+          <form id='searchForm2'>
+              <!-- <label id="searchType"></label>
+               <input id='search-inst' type='text' name='search' placeholder="Enter Instructions">
+                <input id=search-inst-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
+          <a id="three" href="#">Catagories</a>
+          <!-- <form id='searchForm3'> -->
+              <!-- <label id="searchType"></label>
+               <input id='search-catagory' type='text' name='search' placeholder="Enter Catagory">
+                <input id=search-catagory-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
+          <a id="four" href="#">Areas</a>
+          <!-- <form id='searchForm4'>
+              <label id="searchType"></label>
+               <input id='search-aria' type='text' name='search' placeholder="Enter Area">
+                <input id=search-aria-Btn type='submit' name='submit' value="Search"/>
+               </form> -->
+          <a id="five" href="#">FirstLetter</a>
+          <!-- <form id='searchForm5'>
+              <label id="searchType"></label>
+               <input id='fletter-search' type='text' name='search' placeholder="Enter First letter of Dish">
+                <input id=fletter-search-btn type='submit' name='submit' value="Search"/>
+               </form> -->
+          <a id="six" href="#">Random dish</a>
+    <div id="main">
+        <div id="recipeMenu"></div>
+        <div class="dropdown">
+          <button id="button" onclick="dropDown()" class="dropbtn">My Favorite Recipes</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a id="fave-1" href="#">""</a>
+            <a id="fave-2" href="#">""</a>
+            <a id="fave-3" href="#">""</a>
+            <a id="fave-4" href="#">""</a>
+            <a id="fave-5" href="#">""</a>
+            <a id="fave-6" href="#">""</a>
+            <a id="fave-7" href="#">""</a>
+            <a id="fave-8" href="#">""</a>
+            <a id="fave-9" href="#">""</a>
+            <a id="fave-10" href="#">""</a>
+          </div>
+        </div>
+      </div>
     <div id="container1"></div>
     <br>
     <div id="container2"></div>
   </div>
 
+ <!-- <h2>Your Snappily Named Recipe Search Tool</h2> -->
+  <!-- <h3>Enter some keywords, maybe select some filters, you get the idea...</h3> -->
+
+ </header>
+ 
           
- <div id="main">
-  <div id="recipeMenu"></div>
 
-
-
-  <div class="dropdown">
-    <button id="button" onclick="dropDown()" class="dropbtn">Recipe Filters</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a id="one" href="#">Ingredients</a>
-      <!-- <form id='searchForm1'>
-          <label id="searchType"></label>
-           <input id='search-Ing' type='text' name='search' placeholder="Enter Ingredient">
-            <input id=search-Ing-Btn type='submit' name='submit' value="Search"/>
-           </form> -->
-      <a id="two" href="#">Instructions</a>
-      <form id='searchForm2'>
-          <!-- <label id="searchType"></label>
-           <input id='search-inst' type='text' name='search' placeholder="Enter Instructions">
-            <input id=search-inst-Btn type='submit' name='submit' value="Search"/>
-           </form> -->
-      <a id="three" href="#">Catagories</a>
-      <!-- <form id='searchForm3'> -->
-          <!-- <label id="searchType"></label>
-           <input id='search-catagory' type='text' name='search' placeholder="Enter Catagory">
-            <input id=search-catagory-Btn type='submit' name='submit' value="Search"/>
-           </form> -->
-      <a id="four" href="#">Areas</a>
-      <!-- <form id='searchForm4'>
-          <label id="searchType"></label>
-           <input id='search-aria' type='text' name='search' placeholder="Enter Area">
-            <input id=search-aria-Btn type='submit' name='submit' value="Search"/>
-           </form> -->
-      <a id="five" href="#">FirstLetter</a>
-      <!-- <form id='searchForm5'>
-          <label id="searchType"></label>
-           <input id='fletter-search' type='text' name='search' placeholder="Enter First letter of Dish">
-            <input id=fletter-search-btn type='submit' name='submit' value="Search"/>
-           </form> -->
-      <a id="six" href="#">Random dish</a>
+  
   <div id="filterSideBar">
   
       </div>
-<div id="recipeMenu"> </div>
- <div id="favoritesSideBar">
- <h2>My Favorite Recipes</h2>
+
+
  <!-- Favorited Recipes Will Go Here. -->
  </div>  
 </div>
