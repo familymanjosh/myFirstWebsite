@@ -54,7 +54,7 @@ header h2{
     flex-direction: row;
 }
 .card {
-  background-color: #fff;
+  background-color: #0c46c4c0;
   display: flex;
   flex-direction: column;
   align-items: center;
