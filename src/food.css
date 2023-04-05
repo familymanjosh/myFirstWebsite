@@ -36,9 +36,9 @@ header h2{
     margin-top: 0.5vh;
     color: white;
     background-color: rgba(0, 0, 0, 0.308);
-    border: 2px solid #626569;
-    width: 30vw;
-    height: 2vh;
+    border: 4px solid white;
+    width: 50vw;
+    height: vh;
 }
 
 #searchBtn{
@@ -54,7 +54,8 @@ header h2{
     flex-direction: row;
 }
 .card {
-  background-color: #0c46c4c0;
+  color: #fff;
+  background-color:#696969
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +90,7 @@ header h2{
 
 .card-info a {
   color: #fff;
-  background-color: #2196F3;
+  background-color:#696969
   border-radius: 5px;
   padding: 10px 20px;
 }
