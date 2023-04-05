@@ -30,15 +30,15 @@ filtersDropDown.addEventListener('change', (event) => {
     switch (event.target.value) {
       case 'ingredients':
         // Call function to display cards for ingredient search
-        fetchIngredients(filterInput.value);
+        fetchIngredients();
         break;
       case 'categories':
         // Call function to display cards for category search
-        fetchCategories(filterInput.value);
+        fetchCategories();
         break;
       case 'areas':
         // Call function to display cards for area search
-        fetchAreas(filterInput.value);
+        fetchAreas();
         break;
       case 'random-meal':
         // Call function to display cards for random meal
@@ -182,6 +182,7 @@ filtersDropDown.addEventListener('change', (event) => {
       allcategories.forEach(cat => {
         card.innerHTML += `
             <h2 id="card-name">${cat.strCategory}</h2>`
+            
       });
   });
   }
@@ -196,8 +197,7 @@ filtersDropDown.addEventListener('change', (event) => {
     card.classList.add("card")
       mealObj.meals.forEach(area => {
         card.innerHTML += `
-     
-            <h2 id="card-name">${area.strArea}</h2>`
+            <p id="card-name">${area.strArea}</p>`
       });
   });
   }
@@ -218,7 +218,7 @@ filtersDropDown.addEventListener('change', (event) => {
         }
         let measurements = []
         for (let i = 1; i <= 20; i++) {
-            if (random[`strMeasure${i}`] != "") {
+            if (random[`strMeasure${i}`] != " " , random[`strMeasure${i}`] != "") {
                 measurements.push(random[`strMeasure${i}`])
             }
         }
@@ -244,8 +244,3 @@ const renderRandom = (random) => {
         
         sidebar.append(card)
     }
-
-const init = () => {
-   fetchRandom()
-    }
-    init();
