@@ -114,7 +114,7 @@ filtersDropDown.addEventListener('change', (event) => {
         }
         let measurements = []
         for (let i = 1; i <= 20; i++) {
-            if (meal[`strMeasure${i}`] != "") {
+            if (meal[`strMeasure${i}`] != " ") {
                 measurements.push(meal[`strMeasure${i}`])
             }
         }
@@ -125,10 +125,9 @@ filtersDropDown.addEventListener('change', (event) => {
   });
   }
   const renderLatest = (meal) => {
-      latestBtn.addEventListener("click", (e) => {
-        const card = document.createElement("div");
-        card.classList.add("card")
-      card.innerHTML = `
+    const card = document.createElement("div");
+    card.classList.add("card")
+    card.innerHTML = `
       <div class="card-info">
         <img id="img" src=${meal.strMealThumb}>
         <h2 id="card-name">${meal.strMeal}</h2>
@@ -137,11 +136,16 @@ filtersDropDown.addEventListener('change', (event) => {
         <p id="card-ingredients">Ingredients: ${meal.ingredients.join(", ")}</p>
         <p id="card-instructions">${meal.strInstructions}</p>
         <p id="card-measure">Measurements: ${meal.measurements.join(", ")}</p>
-      </div>`
-      sidebar.append(card)
-      console.log(e.target)
-  })
+      </div>
+    `;
+    sidebar.append(card)
   }
+  
+  latestBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    latestFetch();
+  });
+  
   const fetchIngredients = () => {
   fetch(`${apiKey}list.php?i=list`)
   .then(response => response.json())

@@ -49,10 +49,13 @@ header h2{
 
 }
 
-#main{
-    display: flex;
-    flex-direction: row;
-}
+#main {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: right;
+      }
+
 .card {
   color: #fff;
   background-color:#696969;
@@ -64,7 +67,7 @@ header h2{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 500px;
   height: 1100px;
-  margin: 40px;
+  margin: 0 auto;
 }
 
 .card img {
