@@ -176,7 +176,7 @@ filtersDropDown.addEventListener('change', (event) => {
       card.classList.add("card")
       let allcategories = mealObj.meals;
       allcategories.forEach(cat => {
-        card.innerHTML = `
+        card.innerHTML += `
             <h2 id="card-name">${cat.strCategory}</h2>`
       });
   });
