@@ -1,9 +1,7 @@
 //DomSelectors
-const searchform = document.getElementById("search-form")
+const searchform = document.getElementById("searchForm")
 const searchInput = document.getElementById("search")
 const searchBtn = document.getElementById("btn")
-const menu = document.getElementsByClassName("card")
-const menuInfo = document.getElementById("card-info")
 const cards = document.getElementById("cards")
 const filtersDropDown = document.getElementById("filtersDropDown")
 const fDropDown = document.getElementById("dropdown")
@@ -11,37 +9,44 @@ const fDropDown = document.getElementById("dropdown")
 //FILTERS DROP DOWN
 const filtersData = {
     "Ingredients": "ingredients",
-    "Categories": "categorites",
+    "Categories": "categories",
     "Areas": "areas",
     "First Letter": "first-letter",
     "Random Meal": "random-meal"
 }
 
-for (let key in filtersData) {
+let key = (filtersData) => {
     let option = document.createElement("option");
-    option.setAttribute('value', `${option.value}`[key]);
+    option.setAttribute('value', `${filtersData[key]}`);
   
     let optionText = document.createTextNode(key);
     option.appendChild(optionText);
   
     filtersDropDown.appendChild(option);
-  }
+}
 
-filtersDropDown.addEventListener("change", (e)=> {
-    fDropDown.innerHTML = e.target.value
-})
+filtersDropDown.addEventListener("change", (e) => {
+    fDropDown.innerHTML = e.target.value;
+  });
 
 // fetches
+const fetchMeals = () => {
     fetch(`${apiKey}search.php?s=${searchInput.value}`)
-    .then(response => response.json())
-    .then(mealObj => { 
-        console.log(mealObj)
-        let allMeals = mealObj.meals
-        cards.innerHTML = ""
+      .then(response => response.json())
+      .then(mealObj => {
+        console.log(mealObj);
+        let allMeals = mealObj.meals;
+        cards.innerHTML = "";
         allMeals.forEach(meal => {
-            renderMeal(meal)
-    })
-})
+          renderMeal(meal);
+        });
+      });
+  };
+  
+  searchform.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetchMeals();
+  });
 const renderMeal = (meal) => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -58,11 +63,27 @@ const renderMeal = (meal) => {
     </div>`
     cards.append(card)
 }
-//Infinite Scroll
-window.addEventListener('scroll', () => {
-  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
-  const loadPoint = (window.scrollY + 1200)
-  if(scrollableHeight < loadPoint){
-    console.log('More!')
-    throttledFetchReciSearch()
-}})
+const renderStuff = (meal) => {
+    const span = document.createElement("span");
+    span.innerText = meal.strMeal;
+    span.addEventListener("click", (e) => {
+       renderMeal(meal);
+        dropDown(meal);
+    })
+        ingredients.textContent = null;
+        instructions.textContent = null;
+
+};
+function dropDown(meal) {
+    document.getElementById("button").addEventListener("click",(e) =>{
+        document.getElementById("myDropdown").classList.toggle("show")
+    })
+    document.getElementById("one").addEventListener("click", (e) => {
+        e.preventDefault();
+        renderIngredients(meal)
+    })
+    document.getElementById("two").addEventListener("click", (e) => {
+        e.preventDefault();
+        renderInstructions(meal);
+    })
+}
