@@ -5,6 +5,32 @@ const searchBtn = document.getElementById("btn")
 const menu = document.getElementsByClassName("card")
 const menuInfo = document.getElementById("card-info")
 const cards = document.getElementById("cards")
+const filtersDropDown = document.getElementById("filtersDropDown")
+const fDropDown = document.getElementById("dropdown")
+
+//FILTERS DROP DOWN
+const filtersData = {
+    "Ingredients": "ingredients",
+    "Categories": "categorites",
+    "Areas": "areas",
+    "First Letter": "first-letter",
+    "Random Meal": "random-meal"
+}
+
+for (let key in filtersData) {
+    let option = document.createElement("option");
+    option.setAttribute('value', `${option.value}`[key]);
+  
+    let optionText = document.createTextNode(key);
+    option.appendChild(optionText);
+  
+    filtersDropDown.appendChild(option);
+  }
+
+filtersDropDown.addEventListener("change", (e)=> {
+    fDropDown.innerHTML = e.target.value
+})
+
 // fetches
     fetch(`${apiKey}search.php?s=${searchInput.value}`)
     .then(response => response.json())
