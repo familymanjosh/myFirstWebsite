@@ -55,7 +55,7 @@ header h2{
 }
 .card {
   color: #fff;
-  background-color:#696969
+  background-color:#696969;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,7 +63,7 @@ header h2{
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 500px;
-  height: 900px;
+  height: 1100px;
   margin: 40px;
 }
 
@@ -90,7 +90,7 @@ header h2{
 
 .card-info a {
   color: #fff;
-  background-color:#696969
+  background-color:#696969;
   border-radius: 5px;
   padding: 10px 20px;
 }
