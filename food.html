@@ -16,7 +16,7 @@
  <h1>Ultimate Recipe Finder</h1>
  <div id= "displaymenu" style="text-align: center;">
     <form id="searchForm">
-      <input id="search" type="text" placeholder="Search Recipe Name">
+      <input id="search" type="text" placeholder="Search Recipe Name or just click Search to see all recipies">
       <button id="btn" type="submit">Search</button>
     </form>
     <div class="dropdown">
@@ -25,7 +25,6 @@
             <option value="ingredients">Ingredients</option>
             <option value="categories">Categories</option>
             <option value="areas">Areas</option>
-            <option value="first-letter">First Letter</option>
             <option value="random-meal">Random Meal</option>
         </select>
         <form id="Searchfilter">
@@ -34,12 +33,13 @@
         </form>
     </div>
 <div id="sidebar">
-  <div id="cards">
-
-  </div>
+ 
 </div>
  </header>
- <button id="btn" type="submit">Random Meals</button>
+ <button id="randombtn">Latest Meals</button>
+ <div id="cards">
+
+ </div>
 <script src="src/apiKey.js"></script>
 <script src="src/food.js"></script>
  </body>
