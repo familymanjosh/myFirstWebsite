@@ -90,13 +90,13 @@ filtersDropDown.addEventListener('change', (event) => {
           allMeals.forEach(meal => { 
             let ingredients = []
             for (let i = 1; i <= 20; i++) {
-                if (meal[`strIngredient${i}`] != "") {
+                if (meal[`strIngredient${i}`] != "", meal[`strIngredient${i}`] != " ") {
                     ingredients.push(meal[`strIngredient${i}`])
                 }
             }
             let measurements = []
             for (let i = 1; i <= 20; i++) {
-                if (meal[`strMeasure${i}`] != " ") {
+                if (meal[`strMeasure${i}`] != " ", meal[`strMeasure${i}`] != "") {
                     measurements.push(meal[`strMeasure${i}`])
                 }
             }
@@ -136,13 +136,13 @@ filtersDropDown.addEventListener('change', (event) => {
     allMeals.forEach(meal => {
         let ingredients = []
         for (let i = 1; i <= 20; i++) {
-            if (meal[`strIngredient${i}`] != "") {
+            if (meal[`strIngredient${i}`] != "", meal[`strIngredient${i}`] != " ") {
                 ingredients.push(meal[`strIngredient${i}`])
             }
         }
         let measurements = []
         for (let i = 1; i <= 20; i++) {
-            if (meal[`strMeasure${i}`] != " ") {
+            if (meal[`strMeasure${i}`] != " ", meal[`strMeasure${i}`] != "") {
                 measurements.push(meal[`strMeasure${i}`])
             }
         }
@@ -240,7 +240,7 @@ filtersDropDown.addEventListener('change', (event) => {
       allrandom.forEach(random => {
         let ingredients = []
         for (let i = 1; i <= 20; i++) {
-            if (random[`strIngredient${i}`] != "") {
+            if (random[`strIngredient${i}`] != "", random[`strIngredient${i}`] != " ") {
                 ingredients.push(random[`strIngredient${i}`])
             }
         }
@@ -282,34 +282,21 @@ const renderRandom = (random) => {
           console.log(mealObj);
           let allMeals = mealObj.meals;
           sidebar.innerHTML = "";
+          const card = document.createElement("div");
+          sidebar.append(card)
+          card.classList.add("card")
           allMeals.forEach(meal => { 
-            let ingredients = []
-            for (let i = 1; i <= 20; i++) {
-                if (meal[`strIngredient${i}`] != "") {
-                    ingredients.push(meal[`strIngredient${i}`])
-                }
-            }
-            let measurements = []
-            for (let i = 1; i <= 20; i++) {
-                if (meal[`strMeasure${i}`] != " ") {
-                    measurements.push(meal[`strMeasure${i}`])
-                }
-            }
-            meal.measurements = measurements
-            meal.ingredients = ingredients
-            catRender(meal);
+            card.innerHTML += `
+        <div class="card-info">
+          <img id="img" src=${meal.strMealThumb}>
+          <h2 id="card-name">${meal.strMeal}</h2>  
+        </div>`
           });
         });
     }
 
     const catRender = (meal) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
-        <div class="card-info">
-          <img id="img" src=${meal.strMealThumb}>
-          <h2 id="card-name">${meal.strMeal}</h2>  
-        </div>`
+        
         sidebar.append(card)
     }
 
@@ -318,38 +305,20 @@ const renderRandom = (random) => {
          .then(response => response.json())
          .then(mealObj => {
            console.log(mealObj);
-           let allMeals = mealObj.meals;
            sidebar.innerHTML = "";
+           const card = document.createElement("div");
+           card.classList.add("card");
+           sidebar.append(card)
+           let allMeals = mealObj.meals;
            allMeals.forEach(meal => { 
-             let ingredients = []
-             for (let i = 1; i <= 20; i++) {
-                 if (meal[`strIngredient${i}`] != "") {
-                     ingredients.push(meal[`strIngredient${i}`])
-                 }
-             }
-             let measurements = []
-             for (let i = 1; i <= 20; i++) {
-                 if (meal[`strMeasure${i}`] != " ") {
-                     measurements.push(meal[`strMeasure${i}`])
-                 }
-             }
-             meal.measurements = measurements
-             meal.ingredients = ingredients
-             ingRender(meal);
-           });
+            card.innerHTML += `
+            <div class="card-info">
+            <img id="img" src=${meal.strMealThumb}>
+             <h2 id="card-name">${meal.strMeal}</h2>
+            </div>`
          });
-    }
-    const ingRender = (meal) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
-        <div class="card-info">
-          <img id="img" src=${meal.strMealThumb}>
-          <h2 id="card-name">${meal.strMeal}</h2>
-        </div>`
-        sidebar.append(card)
-    }
-
+    })
+}
     const fetchAreaFilters = () => {
         fetch(`${apiKey}filter.php?a=${sAreaInput.value}`)
         .then(response => response.json())
@@ -357,36 +326,18 @@ const renderRandom = (random) => {
           console.log(mealObj);
           let allMeals = mealObj.meals;
           sidebar.innerHTML = "";
+          const card = document.createElement("div");
+          card.classList.add("card");
+          sidebar.append(card)
           allMeals.forEach(meal => { 
-            let ingredients = []
-            for (let i = 1; i <= 20; i++) {
-                if (meal[`strIngredient${i}`] != "") {
-                    ingredients.push(meal[`strIngredient${i}`])
-                }
-            }
-            let measurements = []
-            for (let i = 1; i <= 20; i++) {
-                if (meal[`strMeasure${i}`] != " ") {
-                    measurements.push(meal[`strMeasure${i}`])
-                }
-            }
-            meal.measurements = measurements
-            meal.ingredients = ingredients
-            areaRender(meal);
-          });
-        });
-    }
-
-    const areaRender = (meal) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
-        <div class="card-info">
-          <img id="img" src=${meal.strMealThumb}>
-          <h2 id="card-name">${meal.strMeal}</h2>  
-        </div>`
-        sidebar.append(card)
-    }
+            card.innerHTML += `
+            <div class="card-info">
+              <img id="img" src=${meal.strMealThumb}>
+              <h2 id="card-name">${meal.strMeal}</h2>  
+            </div>`  
+    })
+})
+}
 
     const renderMyMeals = () => {
          const form = document.createElement("form");
