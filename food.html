@@ -21,18 +21,25 @@
     </form>
     <div class="dropdown">
         <select id="filtersDropDown">
+          <option selected disabled>Recipe Filters</option>
             <option value="ingredients">Ingredients</option>
             <option value="categories">Categories</option>
             <option value="areas">Areas</option>
             <option value="first-letter">First Letter</option>
             <option value="random-meal">Random Meal</option>
         </select>
+        <form id="Searchfilter">
+          <input id="filterInput" type="text" placeholder="Search Recipe filter">
+          <button id="filterBtn" type="submit">Search</button>
+        </form>
     </div>
+<div id="sidebar">
   <div id="cards">
 
   </div>
+</div>
  </header>
- 
+ <button id="btn" type="submit">Random Meals</button>
 <script src="src/apiKey.js"></script>
 <script src="src/food.js"></script>
  </body>
