@@ -19,6 +19,18 @@
       <input id="search" type="text" placeholder="Search Recipe Name or just click Search to see all recipies">
       <button id="btn" type="submit">Search</button>
     </form>
+    <form id="SearchCatfilter">
+      <input id="filtercatInput" type="text" placeholder="Filter by  Categories">
+      <button id="filtercatBtn" type="submit">Search</button>
+    </form>
+    <form id="SearchIngfilter">
+      <input id="filteringInput" type="text" placeholder="Filter by Ingredients">
+      <button id="filteringBtn" type="submit">Search</button>
+    </form>
+    <form id="SearchAreafilter">
+      <input id="filterareaInput" type="text" placeholder="Filter by Areas">
+      <button id="filterareaBtn" type="submit">Search</button>
+    </form>
     <div class="dropdown">
         <select id="filtersDropDown">
           <option selected disabled>Recipe Filters</option>
@@ -28,23 +40,13 @@
             <option value="random-meal">Random Meal</option>
         </select>
         <button id="latestbtn">Latest Meals</button>
+        <button id="addedMealBtn">My Recipies</button>
     </div>
 
  </header>
- <form id="SearchCatfilter">
-  <input id="filtercatInput" type="text" placeholder="Filter by  Categories">
-  <button id="filtercatBtn" type="submit">Search</button>
-</form>
-<form id="SearchIngfilter">
-  <input id="filteringInput" type="text" placeholder="Filter by Ingredients">
-  <button id="filteringBtn" type="submit">Search</button>
-</form>
-<form id="SearchAreafilter">
-  <input id="filterareaInput" type="text" placeholder="Filter by Areas">
-  <button id="filterareaBtn" type="submit">Search</button>
-</form>
+
  <div id="sidebar"> </div>
- <div id="cards">
+ <div id="myMeals">
  </div>
 <script src="src/apiKey.js"></script>
 <script src="src/food.js"></script>
