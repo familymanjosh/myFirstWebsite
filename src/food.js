@@ -7,7 +7,27 @@ const filtersDropDown = document.getElementById("filtersDropDown")
 const fDropDown = document.getElementsByClassName("dropdown")
 const latestBtn = document.getElementById("latestbtn")
 const sidebar = document.getElementById("sidebar")
-//FILTERS DROP DOWN
+const catForm = document.getElementById("SearchCatfilter")
+const ingForm = document.getElementById("SearchIngfilter")
+const areaForm = document.getElementById("SearchAreafilter")
+const sCatInput = document.getElementById("filtercatInput")
+const sIngInput = document.getElementById("filteringInput")
+const sAreaInput = document.getElementById("filterareaInput")
+
+//SEARCH FORMS EVENTS
+catForm.addEventListener("submit", (e) =>{
+    e.preventDefault();
+})
+
+ingForm.addEventListener("submit", (e) =>{
+    e.preventDefault();
+})
+
+areaForm.addEventListener("submit", (e) =>{
+    e.preventDefault();
+})
+ 
+//DROPDOWN EVENT
 const filtersData = {
     "Ingredients": "ingredients",
     "Categories": "categories",
