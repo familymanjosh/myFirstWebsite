@@ -60,15 +60,15 @@ filtersDropDown.addEventListener('change', (event) => {
           let allMeals = mealObj.meals;
           sidebar.innerHTML = "";
           allMeals.forEach(meal => { 
-            const ingredients = []
+            let ingredients = []
             for (let i = 1; i <= 20; i++) {
                 if (meal[`strIngredient${i}`] != "") {
                     ingredients.push(meal[`strIngredient${i}`])
                 }
             }
-            const measurements = []
+            let measurements = []
             for (let i = 1; i <= 20; i++) {
-                if (meal[`strMeasure${i}`] != "") {
+                if (meal[`strMeasure${i}`] != " ") {
                     measurements.push(meal[`strMeasure${i}`])
                 }
             }
@@ -106,18 +106,20 @@ filtersDropDown.addEventListener('change', (event) => {
     let allMeals = mealObj.meals;
     sidebar.innerHTML = "";
     allMeals.forEach(meal => {
-        const ingredients = []
+        let ingredients = []
         for (let i = 1; i <= 20; i++) {
             if (meal[`strIngredient${i}`] != "") {
                 ingredients.push(meal[`strIngredient${i}`])
             }
         }
-        const measurements = []
+        let measurements = []
         for (let i = 1; i <= 20; i++) {
             if (meal[`strMeasure${i}`] != "") {
                 measurements.push(meal[`strMeasure${i}`])
             }
         }
+            meal.measurements = measurements
+            meal.ingredients = ingredients
       renderLatest(meal);
     });
   });
@@ -168,45 +170,34 @@ filtersDropDown.addEventListener('change', (event) => {
   .then(response => response.json())
   .then(mealObj => {
       console.log(mealObj);
-      let allcategories = mealObj.meals;
       sidebar.innerHTML = "";
+      const card = document.createElement("div");
+      sidebar.append(card)
+      card.classList.add("card")
+      let allcategories = mealObj.meals;
       allcategories.forEach(cat => {
-      renderAllCategories(cat);
+        card.innerHTML = `
+            <h2 id="card-name">${cat.strCategory}</h2>`
       });
   });
   }
-  const renderAllCategories = (cat) => {
-    const card = document.createElement("div");
-    card.classList.add("card")
-        card.innerHTML = `
-        <div class="card-info">
-            <h2 id="card-name">${cat.strCategory}</h2>
-            </div>`
-    
-        sidebar.append(card)
-    }
   const fetchAreas = () => {
   fetch(`${apiKey}list.php?a=list`)
   .then(response => response.json())
   .then(mealObj => {
       console.log(mealObj);
-      let allareas = mealObj.meals;
-      sidebar.innerHTML = ""
-      allareas.forEach(area => {
-      renderAllAreas(area);
+      sidebar.innerHTML = "";
+    const card = document.createElement("div");
+    sidebar.append(card)
+    card.classList.add("card")
+      mealObj.meals.forEach(area => {
+        card.innerHTML += `
+     
+            <h2 id="card-name">${area.strArea}</h2>`
       });
   });
   }
-  const renderAllAreas = (area) => {
 
-    const card = document.createElement("div");
-    card.classList.add("card")
-        card.innerHTML = `
-        <div class="card-info">
-            <h2 id="card-name">${area.strArea}</h2>
-            </div>`
-        sidebar.append(card)
-    }
   const fetchRandom = () => {
   fetch(`${apiKey}random.php`)
   .then(response => response.json())
@@ -215,18 +206,20 @@ filtersDropDown.addEventListener('change', (event) => {
       let allrandom = mealObj.meals;
       sidebar.innerHTML = ""
       allrandom.forEach(random => {
-        const ingredients = []
+        let ingredients = []
         for (let i = 1; i <= 20; i++) {
             if (random[`strIngredient${i}`] != "") {
                 ingredients.push(random[`strIngredient${i}`])
             }
         }
-        const measurements = []
+        let measurements = []
         for (let i = 1; i <= 20; i++) {
             if (random[`strMeasure${i}`] != "") {
                 measurements.push(random[`strMeasure${i}`])
             }
         }
+            random.measurements = measurements
+            random.ingredients = ingredients
       renderRandom(random);
       });
   });
@@ -249,10 +242,6 @@ const renderRandom = (random) => {
     }
 
 const init = () => {
-    fetchRandom();
-    fetchCategories();
-    fetchIngredients();
-    fetchAreas();
-    latestFetch();
+   fetchRandom()
     }
     init();
