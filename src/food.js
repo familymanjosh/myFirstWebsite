@@ -17,6 +17,7 @@ const myMealBtn = document.getElementById("addedMealBtn")
 
 //SEARCH FILTERS EVENTLISTENERS
 myMealBtn.addEventListener("click", (e) => {
+    myMeals.innerHTML = "";
     renderMyMeals();
 })
 catForm.addEventListener("submit", (e) =>{
@@ -274,78 +275,139 @@ const renderRandom = (random) => {
 
     //FETCH FILTER FORMS
 
-    const fetchCatFilers = () => {
+    const fetchCatFilters = () => {
         fetch(`${apiKey}filter.php?c=${sCatInput.value}`)
         .then(response => response.json())
         .then(mealObj => {
-            console.log(mealObj);
-            let allMeals = mealObj.meals;
-            sidebar.innerHTML = "";
+          console.log(mealObj);
+          let allMeals = mealObj.meals;
+          sidebar.innerHTML = "";
           allMeals.forEach(meal => { 
+            let ingredients = []
+            for (let i = 1; i <= 20; i++) {
+                if (meal[`strIngredient${i}`] != "") {
+                    ingredients.push(meal[`strIngredient${i}`])
+                }
+            }
+            let measurements = []
+            for (let i = 1; i <= 20; i++) {
+                if (meal[`strMeasure${i}`] != " ") {
+                    measurements.push(meal[`strMeasure${i}`])
+                }
+            }
+            meal.measurements = measurements
+            meal.ingredients = ingredients
+            catRender(meal);
+          });
+        });
+    }
 
-        })
-    })
+    const catRender = (meal) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+        <div class="card-info">
+          <img id="img" src=${meal.strMealThumb}>
+          <h2 id="card-name">${meal.strMeal}</h2>  
+        </div>`
+        sidebar.append(card)
     }
 
      const fetchIngFilters = () => {
          fetch(`${apiKey}filter.php?i=${sIngInput.value}`)
-        .then(response => response.json())
-        .then(mealObj => {
-            console.log(mealObj);
-            let allMeals = mealObj.meals;
-            sidebar.innerHTML = "";
-          allMeals.forEach(meal => { 
-
-        })
-    })
+         .then(response => response.json())
+         .then(mealObj => {
+           console.log(mealObj);
+           let allMeals = mealObj.meals;
+           sidebar.innerHTML = "";
+           allMeals.forEach(meal => { 
+             let ingredients = []
+             for (let i = 1; i <= 20; i++) {
+                 if (meal[`strIngredient${i}`] != "") {
+                     ingredients.push(meal[`strIngredient${i}`])
+                 }
+             }
+             let measurements = []
+             for (let i = 1; i <= 20; i++) {
+                 if (meal[`strMeasure${i}`] != " ") {
+                     measurements.push(meal[`strMeasure${i}`])
+                 }
+             }
+             meal.measurements = measurements
+             meal.ingredients = ingredients
+             ingRender(meal);
+           });
+         });
+    }
+    const ingRender = (meal) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+        <div class="card-info">
+          <img id="img" src=${meal.strMealThumb}>
+          <h2 id="card-name">${meal.strMeal}</h2>
+        </div>`
+        sidebar.append(card)
     }
 
     const fetchAreaFilters = () => {
         fetch(`${apiKey}filter.php?a=${sAreaInput.value}`)
         .then(response => response.json())
         .then(mealObj => {
-            console.log(mealObj);
-            let allMeals = mealObj.meals;
-            sidebar.innerHTML = "";
-          allMeals.forEach(meal => {
-             
-        })
-    });
-}
+          console.log(mealObj);
+          let allMeals = mealObj.meals;
+          sidebar.innerHTML = "";
+          allMeals.forEach(meal => { 
+            let ingredients = []
+            for (let i = 1; i <= 20; i++) {
+                if (meal[`strIngredient${i}`] != "") {
+                    ingredients.push(meal[`strIngredient${i}`])
+                }
+            }
+            let measurements = []
+            for (let i = 1; i <= 20; i++) {
+                if (meal[`strMeasure${i}`] != " ") {
+                    measurements.push(meal[`strMeasure${i}`])
+                }
+            }
+            meal.measurements = measurements
+            meal.ingredients = ingredients
+            areaRender(meal);
+          });
+        });
+    }
+
+    const areaRender = (meal) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+        <div class="card-info">
+          <img id="img" src=${meal.strMealThumb}>
+          <h2 id="card-name">${meal.strMeal}</h2>  
+        </div>`
+        sidebar.append(card)
+    }
+
     const renderMyMeals = () => {
          const form = document.createElement("form");
             form.classList.add("form")
+            form.innerHTML = ""
             form.innerHTML = `
             <div class="form-info">
-                <label for="meal">Meal Name</label>
                 <input type="text" id="meal" name="meal" placeholder="Meal Name">
-                <label for="area">Area</label>
                 <input type="text" id="area" name="area" placeholder="Area">
-                <label for="catagory">Catagory</label>
                 <input type="text" id="catagory" name="catagory" placeholder="Catagory">
-                <label for="instructions">Instructions</label>
                 <input type="text" id="instructions" name="instructions" placeholder="Instructions">
-                <label for="image">Image</label>
                 <input type="text" id="image" name="image" placeholder="Image">
-                <label for="ingredient1">Ingredient 1</label>
                 <input type="text" id="ingredient1" name="ingredient1" placeholder="Ingredient 1">
-                <label for="ingredient2">Ingredient 2</label>
                 <input type="text" id="ingredient2" name="ingredient2" placeholder="Ingredient 2">
-                <label for="ingredient3">Ingredient 3</label>
                 <input type="text" id="ingredient3" name="ingredient3" placeholder="Ingredient 3">
-                <label for="ingredient4">Ingredient 4</label>
                 <input type="text" id="ingredient4" name="ingredient4" placeholder="Ingredient 4">
-                <label for="ingredient5">Ingredient 5</label>
                 <input type="text" id="ingredient5" name="ingredient5" placeholder="Ingredient 5">
-                <label for="measure1">Measure 1</label>
                 <input type="text" id="measure1" name="measure1" placeholder="Measure 1">
-                <label for="measure2">Measure 2</label>
                 <input type="text" id="measure2" name="measure2" placeholder="Measure 2">
-                <label for="measure3">Measure 3</label>
                 <input type="text" id="measure3" name="measure3" placeholder="Measure 3">
-                <label for="measure4">Measure 4</label>
                 <input type="text" id="measure4" name="measure4" placeholder="Measure 4">
-                <label for="measure5">Measure 5</label>
                 <input type="text" id="measure5" name="measure5" placeholder="Measure 5">
                 <input type="submit" value="Submit">
                 </div>`
@@ -385,7 +447,8 @@ const renderRandom = (random) => {
                         strMeasure5: measure5
                     }
                     console.log(newMeal)
-    fetch("http://localhost:3000", {
+                    
+    fetch(`${apiKey}add.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
