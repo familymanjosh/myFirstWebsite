@@ -14,17 +14,20 @@ const sCatInput = document.getElementById("filtercatInput")
 const sIngInput = document.getElementById("filteringInput")
 const sAreaInput = document.getElementById("filterareaInput")
 
-//SEARCH FORMS EVENTS
+//SEARCH FILTERS EVENTLISTENERS
 catForm.addEventListener("submit", (e) =>{
     e.preventDefault();
+    fetchCatFilters();
 })
 
 ingForm.addEventListener("submit", (e) =>{
     e.preventDefault();
+    fetchIngFilters();
 })
 
 areaForm.addEventListener("submit", (e) =>{
     e.preventDefault();
+    fetchAreaFilters();
 })
  
 //DROPDOWN EVENT
@@ -263,4 +266,45 @@ const renderRandom = (random) => {
             </div>`
         
         sidebar.append(card)
+    }
+
+    //FETCH FILTER FORMS
+
+    const fetchCatFilers = () => {
+        fetch(`${apiKey}filter.php?c=${sCatInput.value}`)
+        .then(response => response.json())
+        .then(mealObj => {
+            console.log(mealObj);
+            let allMeals = mealObj.meals;
+            sidebar.innerHTML = "";
+          allMeals.forEach(meal => { 
+
+        })
+    })
+    }
+
+     const fetchIngFilters = () => {
+         fetch(`${apiKey}filter.php?i=${sIngInput.value}`)
+        .then(response => response.json())
+        .then(mealObj => {
+            console.log(mealObj);
+            let allMeals = mealObj.meals;
+            sidebar.innerHTML = "";
+          allMeals.forEach(meal => { 
+
+        })
+    })
+    }
+
+    const fetchAreaFilters = () => {
+        fetch(`${apiKey}filter.php?a=${sAreaInput.value}`)
+        .then(response => response.json())
+        .then(mealObj => {
+            console.log(mealObj);
+            let allMeals = mealObj.meals;
+            sidebar.innerHTML = "";
+          allMeals.forEach(meal => {
+             
+        })
+    });
     }
