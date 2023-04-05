@@ -105,13 +105,7 @@ fetch(`${apiKey}list.php?i=list`)
     });
 });
 }
-const renderAllIngredients = (meal) => {
-    allIngredientsBtn.addEventListener("click", (e) => {
-    const allIngredientsCard = document.createElement("div");
-    allIngredientsCard.classList.add("allIngredientsCard");
-    allIngredientsCard.innerHTML = `
-    <div class="allIngredientsCard-info">
-        <p id="allIngredientsCard-ingredients">${"Ingredients: " + meal.strIngredient1 + ", " + meal.strIngredient2 + ", " + meal.strIngredient3 + ", " + meal.strIngredient4 + ", " + meal.strIngredient5 + ", " + meal.strIngredient6 + ", " + meal.strIngredient7 + ", " + meal.strIngredient8 + ", " + meal.strIngredient9 + ", " + meal.strIngredient10 + ", " + meal.strIngredient11 + ", " + meal.strIngredient12 + ", " + meal.strIngredient13 + ", " + meal.strIngredient14 + ", " + meal.strIngredient15 + ", " + meal.strIngredient16 + ", " + meal.strIngredient17 + ", " + meal.strIngredient18 + ", " + meal.strIngredient19 + ", " + meal.strIngredient20 }</p>
+//
 // const randomFetch = () => {
 // fetch(`${apiKey}random.php`)
 // .then(response => response.json())
