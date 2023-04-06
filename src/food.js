@@ -15,6 +15,7 @@ const sIngInput = document.getElementById("filteringInput")
 const sAreaInput = document.getElementById("filterareaInput")
 const myMealBtn = document.getElementById("addedMealBtn")
 const myRecipe = document.getElementById("myMealBtn")
+const newAppend = document.getElementById("addedMeal")
 
 //SEARCH FILTERS EVENTLISTENERS
 myRecipe.addEventListener("click", (e) => {
@@ -236,6 +237,33 @@ filtersDropDown.addEventListener('change', (event) => {
       });
   });
   }
+  fetchRandomTen = () => {
+    fetch(`${apiKey}randomselection.php`)
+    .then(response => response.json())
+    .then(mealObj => {
+        console.log(mealObj);
+        let allrandom = mealObj.meals;
+        sidebar.innerHTML = ""
+        allrandom.forEach(random => {
+            let ingredients = []
+            for (let i = 1; i <= 20; i++) {
+                if (random[`strIngredient${i}`] != "", random[`strIngredient${i}`] != " ") {
+                    ingredients.push(random[`strIngredient${i}`])
+                }
+            }
+            let measurements = []
+            for (let i = 1; i <= 20; i++) {
+                if (random[`strMeasure${i}`] != " " , random[`strMeasure${i}`] != "") {
+                    measurements.push(random[`strMeasure${i}`])
+                }
+            }
+                random.measurements = measurements
+                random.ingredients = ingredients
+            renderRandom(random);
+        });
+    });
+    }
+
 
   const fetchRandom = () => {
   fetch(`${apiKey}random.php`)
@@ -302,11 +330,6 @@ const renderRandom = (random) => {
         });
     }
 
-    const catRender = (meal) => {
-        
-        sidebar.append(card)
-    }
-
      const fetchIngFilters = () => {
          fetch(`${apiKey}filter.php?i=${sIngInput.value}`)
          .then(response => response.json())
@@ -332,7 +355,7 @@ const renderRandom = (random) => {
         .then(mealObj => {
           console.log(mealObj);
           let allMeals = mealObj.meals;
-          sidebar.innerHTML = "";
+          newAppend.innerHTML = "";
           const card = document.createElement("div");
           card.classList.add("card");
           sidebar.append(card)
@@ -367,9 +390,10 @@ const renderRandom = (random) => {
                 <input type="text" id="measure3" name="measure3" placeholder="Measure 3">
                 <input type="text" id="measure4" name="measure4" placeholder="Measure 4">
                 <input type="text" id="measure5" name="measure5" placeholder="Measure 5">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Create Yours!">
                 </div>`
-                sidebar.append(form)
+                newAppend.innerHTML = ""
+                newAppend.append(form)
                 form.addEventListener("submit", (e) => {
                  e.preventDefault()
                     const meal = e.target.meal.value
