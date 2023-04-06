@@ -1,0 +1,22 @@
+{
+  "meals": [
+    {
+      "strMeal": "Pep pizza",
+      "strArea": "America",
+      "strCategory": "pizza",
+      "strInstructions": "baked",
+      "strMealThumb": "https://media.istockphoto.com/id/1133727757/photo/picking-slice-of-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=96ozZJunCt7zXr1plxh3aiO-L48aSvYWVSqJldSoL7w=",
+      "strIngredient1": "cheese",
+      "strIngredient2": "peperoni",
+      "strIngredient3": "dough",
+      "strIngredient4": "tomatoSauce",
+      "strIngredient5": "alredo sauce",
+      "strMeasure1": "1/2lb cheese",
+      "strMeasure2": "1 packet peperoni",
+      "strMeasure3": "one dough",
+      "strMeasure4": "on can tomato sauce",
+      "strMeasure5": "one can alredo sauce",
+      "id": 1
+    }
+  ]
+}
