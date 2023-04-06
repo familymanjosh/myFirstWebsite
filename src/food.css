@@ -34,49 +34,49 @@ header h2{
 
 #search{
     margin-top: 0.5vh;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.308);
-    border: 4px solid white;
-    width: 50vw;
-    height: vh;
+    color: rgb(255, 1, 1);
+    background-color: rgb(0, 0, 0);
+    width: 40vw;
+    height: 3vh;
+}
+#btn{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 1, 1);
+    width: 100px;
+    height: 3vh;
+    border-radius: 30px;
 }
 #filters{
-  position:relative; left:20px; top:-50px;
   color: rgb(217, 5, 5);
   text-align: left;
+  position:relative; left:20px; top:-15px;
+
 }
 #filters input{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5);
+  width: auto;
+  height: 2.5vh;
+
 }
 #filters button{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5);
+  width: 100px;
+  height: 2.5vh;
+  border-radius: 30px;
 }
-/* #filterareaBtn{
-  background-color: rgb(4, 2, 2);
-  color: rgb(217, 5, 5);
-}
-#filteringBtn{
-  background-color: rgb(4, 2, 2);
-  color: rgb(217, 5, 5);
-
-}
-#filtercatBtn{
-  background-color: rgb(4, 2, 2);
-  color: rgb(217, 5, 5); 
-} */
 #buttonMenu{
   position:relative; left:-50px; top:-30px;
   text-align: center;
 }
-#filtercatInput{
+/* #filtercatInput{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5); 
-}
+} */
 #addedMeal{
   position:relative; left:70px; top:90px;
-  text-align: center;
+  text-align: left;
   height: 3vh;
   margin-top: 0.5vh;
   margin-left: 0.5vh;
@@ -85,13 +85,31 @@ header h2{
   width: 10vw;
   height: 2.5vh;
 }
+#addedMeal input{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5); 
+  width: auto;
+  height: 2.5vh;
+}
 #addedMealBtn{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5); 
 }
 .dropdown button{
+  position: relative; left: 0px; top: -30px;
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5); 
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+}
+#filtersDropDown{
+  position: relative; left: 0px; top: -30px;
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5); 
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
 }
 #main {
         display: flex;

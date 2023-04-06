@@ -338,20 +338,23 @@ const renderRandom = (random) => {
         .then(mealObj => {
           console.log(mealObj);
           let allMeals = mealObj.meals;
-          sidebar.innerHTML = "";
-          const card = document.createElement("div");
-          sidebar.append(card)
-          card.classList.add("card")
-          allMeals.forEach(meal => { 
-            card.innerHTML += `
-        <div class="card-info">
-          <img id="img" src=${meal.strMealThumb}>
-          <h2 id="card-name">${meal.strMeal}</h2>  
-        </div>`
-          });
-        });
+          if (allMeals !== null) {
+            sidebar.innerHTML = "";
+            const card = document.createElement("div");
+            sidebar.append(card)
+            card.classList.add("card")
+            allMeals.forEach(meal => { 
+              card.innerHTML += `
+                <div class="card-info">
+                  <img id="img" src=${meal.strMealThumb}>
+                  <h2 id="card-name">${meal.strMeal}</h2>  
+                </div>`
+            });
+          } else {
+            console.log("No meals found");
+          }
+        })
     }
-
      const fetchIngFilters = () => {
          fetch(`${apiKey}filter.php?i=${sIngInput.value}`)
          .then(response => response.json())
@@ -376,20 +379,24 @@ const renderRandom = (random) => {
         .then(response => response.json())
         .then(mealObj => {
           console.log(mealObj);
-          sidebar.innerHTML = "";
-          const card = document.createElement("div");
-          card.classList.add("card");
-          sidebar.append(card)
           let allMeals = mealObj.meals;
-          allMeals.forEach(meal => { 
-            card.innerHTML += `
-            <div class="card-info">
-              <img id="img" src=${meal.strMealThumb}>
-              <h2 id="card-name">${meal.strMeal}</h2>  
-            </div>`  
-    })
-})
-}
+          if (allMeals !== null) {
+            sidebar.innerHTML = "";
+            const card = document.createElement("div");
+            sidebar.append(card)
+            card.classList.add("card")
+            allMeals.forEach(meal => { 
+              card.innerHTML += `
+                <div class="card-info">
+                  <img id="img" src=${meal.strMealThumb}>
+                  <h2 id="card-name">${meal.strMeal}</h2>  
+                </div>`
+            });
+          } else {
+            console.log("No meals found");
+          }
+        })
+    }
 
     const renderMyMeals = () => {
          const form = document.createElement("form");
@@ -412,8 +419,25 @@ const renderRandom = (random) => {
                 <input type="text" id="measure3" name="measure3" placeholder="Measure 3">
                 <input type="text" id="measure4" name="measure4" placeholder="Measure 4">
                 <input type="text" id="measure5" name="measure5" placeholder="Measure 5">
-                <input type="submit" value="Create Yours!">
+                <input type="submit" id="newRecipieBtn" value="Create Yours!">
                 </div>`
+                form.style = "position: relative; top: -7vh; left: 0vh;"
+                form.meal.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.area.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.catagory.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.instructions.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.image.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.ingredient1.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.ingredient2.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.ingredient3.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.ingredient4.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.ingredient5.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.measure1.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.measure2.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.measure3.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.measure4.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.measure5.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
+                form.newRecipieBtn.style = "background-color: rgb(217, 5, 5);color: black; width: 150px;height: 3.5vh; border-radius: 40px";
                 newAppend.innerHTML = ""
                 newAppend.append(form)
                 form.addEventListener("submit", (e) => {
