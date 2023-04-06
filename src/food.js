@@ -15,9 +15,15 @@ const sIngInput = document.getElementById("filteringInput")
 const sAreaInput = document.getElementById("filterareaInput")
 const myMealBtn = document.getElementById("addedMealBtn")
 const myRecipe = document.getElementById("myMealBtn")
+const topTenBtn = document.getElementById("topTenBtn")
 const newAppend = document.getElementById("addedMeal")
+const btnMenu = document.getElementById("buttonmenu")
 
 //SEARCH FILTERS EVENTLISTENERS
+topTenBtn.addEventListener("click", (e) => {
+    sidebar.innerHTML = "";
+    fetchRandomTen();
+})
 myRecipe.addEventListener("click", (e) => {
     sidebar.innerHTML = "";
     renderCreatedRecipe();
@@ -259,11 +265,27 @@ filtersDropDown.addEventListener('change', (event) => {
             }
                 random.measurements = measurements
                 random.ingredients = ingredients
-            renderRandom(random);
+            renderRandomTen(random);
         });
     });
     }
-
+    const renderRandomTen = (random) => {
+        const card = document.createElement("div");
+        card.classList.add("card")
+        card.innerHTML = `
+            <div class="card-info">
+            <img id="img" src=${random.strMealThumb}>
+            <h2 id="card-name">${random.strMeal}</h2>   
+            <p id="card-area">${random.strArea}</p>
+            <p id="card-catagory">${random.strCategory}</p>
+            <p id="card-ingredients">Ingredients: ${random.ingredients.join(", ")}</p>
+            <p id="card-instructions">${random.strInstructions}</p>
+            <p id="card-measure">Measurements: ${random.measurements.join(", ")}</p>
+            </div>
+        `;
+        sidebar.append(card)
+        
+    }
 
   const fetchRandom = () => {
   fetch(`${apiKey}random.php`)
