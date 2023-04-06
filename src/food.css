@@ -40,15 +40,59 @@ header h2{
     width: 50vw;
     height: vh;
 }
-
-#searchBtn{
-    background-color: rgba(0, 0, 0, 0.308);
-    color: white;
-    height: 2.5vh;
-    border: 2px solid #626569;
+#filters{
+  position:relative; left:20px; top:-50px;
+  color: rgb(217, 5, 5);
+  text-align: left;
+}
+#filters input{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5);
+}
+#filters button{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5);
+}
+/* #filterareaBtn{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5);
+}
+#filteringBtn{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5);
 
 }
-
+#filtercatBtn{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5); 
+} */
+#buttonMenu{
+  position:relative; left:-50px; top:-30px;
+  text-align: center;
+}
+#filtercatInput{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5); 
+}
+#addedMeal{
+  position:relative; left:70px; top:90px;
+  text-align: center;
+  height: 3vh;
+  margin-top: 0.5vh;
+  margin-left: 0.5vh;
+  margin-right: 0.5vh;
+  margin-bottom: 0.5vh;
+  width: 10vw;
+  height: 2.5vh;
+}
+#addedMealBtn{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5); 
+}
+.dropdown button{
+  background-color: rgb(4, 2, 2);
+  color: rgb(217, 5, 5); 
+}
 #main {
         display: flex;
         flex-direction: row;

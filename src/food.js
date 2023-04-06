@@ -234,16 +234,16 @@ filtersDropDown.addEventListener('change', (event) => {
   .then(mealObj => {
       console.log(mealObj);
       sidebar.innerHTML = "";
-    const card = document.createElement("div");
-    sidebar.append(card)
-    card.classList.add("card")
+      const card = document.createElement("div");
+      card.classList.add("card")
+      sidebar.append(card)
       mealObj.meals.forEach(area => {
         card.innerHTML += `
             <p id="card-name">${area.strArea}</p>`
       });
   });
   }
-  fetchRandomTen = () => {
+ const  fetchRandomTen = () => {
     fetch(`${apiKey}randomselection.php`)
     .then(response => response.json())
     .then(mealObj => {
@@ -376,11 +376,11 @@ const renderRandom = (random) => {
         .then(response => response.json())
         .then(mealObj => {
           console.log(mealObj);
-          let allMeals = mealObj.meals;
-          newAppend.innerHTML = "";
+          sidebar.innerHTML = "";
           const card = document.createElement("div");
           card.classList.add("card");
           sidebar.append(card)
+          let allMeals = mealObj.meals;
           allMeals.forEach(meal => { 
             card.innerHTML += `
             <div class="card-info">
