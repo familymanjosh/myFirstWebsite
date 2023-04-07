@@ -22,16 +22,18 @@ const btnMenu = document.getElementById("buttonmenu")
 //SEARCH FILTERS EVENTLISTENERS
 topTenBtn.addEventListener("click", (e) => {
     sidebar.innerHTML = "";
+    newAppend.innerHTML = ""
     fetchRandomTen();
 })
 myRecipe.addEventListener("click", (e) => {
     sidebar.innerHTML = "";
+    newAppend.innerHTML = ""
     renderCreatedRecipe();
 })
 
 myMealBtn.addEventListener("click", (e) => {
     sidebar.innerHTML = "";
-    myMeals.innerHTML = "";
+    newAppend.innerHTML = ""
     renderMyMeals();
 })
 catForm.addEventListener("submit", (e) =>{
@@ -101,16 +103,17 @@ filtersDropDown.addEventListener('change', (event) => {
           console.log(mealObj);
           let allMeals = mealObj.meals;
           sidebar.innerHTML = "";
+          newAppend.innerHTML = ""
           allMeals.forEach(meal => { 
             let ingredients = []
             for (let i = 1; i <= 20; i++) {
-                if (meal[`strIngredient${i}`] != "", meal[`strIngredient${i}`] != " ") {
+                if (meal[`strIngredient${i}`] != "" && meal[`strIngredient${i}`] != " ") {
                     ingredients.push(meal[`strIngredient${i}`])
                 }
             }
             let measurements = []
             for (let i = 1; i <= 20; i++) {
-                if (meal[`strMeasure${i}`] != " ", meal[`strMeasure${i}`] != "") {
+                if (meal[`strMeasure${i}`] != "" && meal[`strMeasure${i}`] != " ") {
                     measurements.push(meal[`strMeasure${i}`])
                 }
             }
@@ -147,16 +150,17 @@ filtersDropDown.addEventListener('change', (event) => {
     console.log(mealObj);
     let allMeals = mealObj.meals;
     sidebar.innerHTML = "";
+    newAppend.innerHTML = ""
     allMeals.forEach(meal => {
         let ingredients = []
         for (let i = 1; i <= 20; i++) {
-            if (meal[`strIngredient${i}`] != "", meal[`strIngredient${i}`] != " ") {
+            if (meal[`strIngredient${i}`] != "" && meal[`strIngredient${i}`] != " " && meal[`strIngredient${i}`] != null) {
                 ingredients.push(meal[`strIngredient${i}`])
             }
         }
         let measurements = []
         for (let i = 1; i <= 20; i++) {
-            if (meal[`strMeasure${i}`] != " ", meal[`strMeasure${i}`] != "") {
+            if (meal[`strMeasure${i}`] != " " && meal[`strMeasure${i}`] != ""&& meal[`strIngredient${i}`] != null) {
                 measurements.push(meal[`strMeasure${i}`])
             }
         }
@@ -195,6 +199,7 @@ filtersDropDown.addEventListener('change', (event) => {
       console.log(mealObj);
       let allingredients = mealObj.meals;
       sidebar.innerHTML = "";
+      newAppend.innerHTML = ""
       allingredients.forEach(ing => {
       renderAllIngredients(ing);
       });
@@ -217,6 +222,7 @@ filtersDropDown.addEventListener('change', (event) => {
   .then(mealObj => {
       console.log(mealObj);
       sidebar.innerHTML = "";
+      newAppend.innerHTML = ""
       const card = document.createElement("div");
       sidebar.append(card)
       card.classList.add("card")
@@ -234,6 +240,7 @@ filtersDropDown.addEventListener('change', (event) => {
   .then(mealObj => {
       console.log(mealObj);
       sidebar.innerHTML = "";
+      newAppend.innerHTML = ""
       const card = document.createElement("div");
       card.classList.add("card")
       sidebar.append(card)
@@ -250,16 +257,17 @@ filtersDropDown.addEventListener('change', (event) => {
         console.log(mealObj);
         let allrandom = mealObj.meals;
         sidebar.innerHTML = ""
+        newAppend.innerHTML = ""
         allrandom.forEach(random => {
             let ingredients = []
             for (let i = 1; i <= 20; i++) {
-                if (random[`strIngredient${i}`] != "", random[`strIngredient${i}`] != " ") {
+                if (random[`strIngredient${i}`] != "" && random[`strIngredient${i}`] != " "&& random[`strIngredient${i}`] != null) {
                     ingredients.push(random[`strIngredient${i}`])
                 }
             }
             let measurements = []
             for (let i = 1; i <= 20; i++) {
-                if (random[`strMeasure${i}`] != " " , random[`strMeasure${i}`] != "") {
+                if (random[`strMeasure${i}`] != " " && random[`strMeasure${i}`] != ""&& random[`strIngredient${i}`] != null) {
                     measurements.push(random[`strMeasure${i}`])
                 }
             }
@@ -294,16 +302,17 @@ filtersDropDown.addEventListener('change', (event) => {
       console.log(mealObj);
       let allrandom = mealObj.meals;
       sidebar.innerHTML = ""
+      newAppend.innerHTML = ""
       allrandom.forEach(random => {
         let ingredients = []
         for (let i = 1; i <= 20; i++) {
-            if (random[`strIngredient${i}`] != "", random[`strIngredient${i}`] != " ") {
+            if (random[`strIngredient${i}`] != "" && random[`strIngredient${i}`] != " "&& random[`strIngredient${i}`] != null) {
                 ingredients.push(random[`strIngredient${i}`])
             }
         }
         let measurements = []
         for (let i = 1; i <= 20; i++) {
-            if (random[`strMeasure${i}`] != " " , random[`strMeasure${i}`] != "") {
+            if (random[`strMeasure${i}`] != " " && random[`strMeasure${i}`] != ""&& random[`strIngredient${i}`] != null) {
                 measurements.push(random[`strMeasure${i}`])
             }
         }
@@ -333,6 +342,7 @@ const renderRandom = (random) => {
     //FETCH FILTER FORMS
 
     const fetchCatFilters = () => {
+        if(sCatInput.value.trim() !== ""){ 
         fetch(`${apiKey}filter.php?c=${sCatInput.value}`)
         .then(response => response.json())
         .then(mealObj => {
@@ -340,6 +350,7 @@ const renderRandom = (random) => {
           let allMeals = mealObj.meals;
           if (allMeals !== null) {
             sidebar.innerHTML = "";
+            newAppend.innerHTML = ""
             const card = document.createElement("div");
             sidebar.append(card)
             card.classList.add("card")
@@ -352,8 +363,9 @@ const renderRandom = (random) => {
             });
           } else {
             console.log("No meals found");
+            alert("No meals found")
           }
-        })
+        })}
     }
      const fetchIngFilters = () => {
          fetch(`${apiKey}filter.php?i=${sIngInput.value}`)
@@ -361,10 +373,12 @@ const renderRandom = (random) => {
          .then(mealObj => {
            console.log(mealObj);
            sidebar.innerHTML = "";
+           newAppend.innerHTML = ""
            const card = document.createElement("div");
            card.classList.add("card");
            sidebar.append(card)
            let allMeals = mealObj.meals;
+           if (allMeals) {
            allMeals.forEach(meal => { 
             card.innerHTML += `
             <div class="card-info">
@@ -372,6 +386,10 @@ const renderRandom = (random) => {
              <h2 id="card-name">${meal.strMeal}</h2>
             </div>`
          });
+        } else {
+            console.log("No meals found");
+            alert("No meals found")
+          }
     })
 }
     const fetchAreaFilters = () => {
@@ -380,8 +398,9 @@ const renderRandom = (random) => {
         .then(mealObj => {
           console.log(mealObj);
           let allMeals = mealObj.meals;
-          if (allMeals !== null) {
+          if (allMeals) {
             sidebar.innerHTML = "";
+            newAppend.innerHTML = ""
             const card = document.createElement("div");
             sidebar.append(card)
             card.classList.add("card")
@@ -394,16 +413,16 @@ const renderRandom = (random) => {
             });
           } else {
             console.log("No meals found");
+            alert("No meals found")
           }
         })
     }
 
     const renderMyMeals = () => {
          const form = document.createElement("form");
-            form.classList.add("form")
             form.innerHTML = ""
             form.innerHTML = `
-            <div class="form-info">
+            <div>
                 <input type="text" id="meal" name="meal" placeholder="Meal Name">
                 <input type="text" id="area" name="area" placeholder="Area">
                 <input type="text" id="catagory" name="catagory" placeholder="Catagory">
@@ -420,24 +439,8 @@ const renderRandom = (random) => {
                 <input type="text" id="measure4" name="measure4" placeholder="Measure 4">
                 <input type="text" id="measure5" name="measure5" placeholder="Measure 5">
                 <input type="submit" id="newRecipieBtn" value="Create Yours!">
-                </div>`
-                form.style = "position: relative; top: -7vh; left: 0vh;"
-                form.meal.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.area.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.catagory.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.instructions.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.image.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.ingredient1.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.ingredient2.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.ingredient3.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.ingredient4.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.ingredient5.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.measure1.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.measure2.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.measure3.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.measure4.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.measure5.style = "background-color: rgb(4, 2, 2);color: rgb(217, 5, 5);  width: auto; height: 2.5vh; border-radius: 40px";
-                form.newRecipieBtn.style = "background-color: rgb(217, 5, 5);color: black; width: 150px;height: 3.5vh; border-radius: 40px";
+                </div>`  
+                form.children[0].classList.add("form-info")
                 newAppend.innerHTML = ""
                 newAppend.append(form)
                 form.addEventListener("submit", (e) => {
@@ -489,7 +492,7 @@ const renderRandom = (random) => {
     })
   })
 }
-const renderCreatedRecipe = (meal) => {
+const renderCreatedRecipe = () => {
     fetch ("http://localhost:3000/meals")
     .then(response => response.json())
     .then(meals => {
@@ -498,13 +501,13 @@ const renderCreatedRecipe = (meal) => {
         meals.forEach(meal => {
             let ingredients = []
             for (let i = 1; i <= 5; i++) {
-                if (meal[`strIngredient${i}`] != "", meal[`strIngredient${i}`] != " ") {
+                if (meal[`strIngredient${i}`] != "", meal[`strIngredient${i}`] != " "&& meal[`strIngredient${i}`] != null) {
                     ingredients.push(meal[`strIngredient${i}`])
                 }
             }
             let measurements = []
             for (let i = 1; i <= 5; i++) {
-                if (meal[`strMeasure${i}`] != " ", meal[`strMeasure${i}`] != "") {
+                if (meal[`strMeasure${i}`] != " ", meal[`strMeasure${i}`] != ""&& meal[`strIngredient${i}`] != null) {
                     measurements.push(meal[`strMeasure${i}`])
                 }
             }

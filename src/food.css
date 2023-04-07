@@ -11,14 +11,13 @@ body{
 }
 
 header{
-    background-color: rgba(0, 0, 0, 0.39);
+    background-color: rgba(0, 0, 0, 0.447);
     text-align: center;
     height: 22vh;
 }
 
 header h1{
     color: #cc000a;
-    background-color: rgba(0, 0, 0, 0.151);
     /* font-family: 'Tilt Prism', cursive; */
     font-family: 'Great Vibes', cursive;
     font-size: 6vmin;
@@ -55,8 +54,9 @@ header h2{
 #filters input{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5);
-  width: auto;
+  width: 190px;
   height: 2.5vh;
+  border-radius: 30px;
 
 }
 #filters button{
@@ -67,13 +67,9 @@ header h2{
   border-radius: 30px;
 }
 #buttonMenu{
-  position:relative; left:-50px; top:-30px;
+  position:relative; left:-30px; top:-30px;
   text-align: center;
 }
-/* #filtercatInput{
-  background-color: rgb(4, 2, 2);
-  color: rgb(217, 5, 5); 
-} */
 #addedMeal{
   position:relative; left:70px; top:90px;
   text-align: left;
@@ -85,16 +81,14 @@ header h2{
   width: 10vw;
   height: 2.5vh;
 }
-#addedMeal input{
+ .form-info input{
+  position: relative; left: 0px; top: -111px;
   background-color: rgb(4, 2, 2);
-  color: rgb(217, 5, 5); 
-  width: auto;
-  height: 2.5vh;
-}
-#addedMealBtn{
-  background-color: rgb(4, 2, 2);
-  color: rgb(217, 5, 5); 
-}
+  color: rgb(217, 5, 5);  
+  width: 150px; 
+  height: 3.5vh; 
+  border-radius: 40px
+} 
 .dropdown button{
   position: relative; left: 0px; top: -30px;
   background-color: rgb(4, 2, 2);
