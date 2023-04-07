@@ -69,7 +69,7 @@ let key = (filtersData) => {
   
     filtersDropDown.appendChild(option);
 }
-
+filtersDropDown.addEventListener('click', clearAll);
 filtersDropDown.addEventListener('change', (event) => {
     switch (event.target.value) {
       case 'ingredients':
@@ -95,6 +95,9 @@ filtersDropDown.addEventListener('change', (event) => {
         break;
     }
   });
+function clearAll() {
+  filtersDropDown.selectedIndex = 0;
+}
   // fetches
   const fetchMeals = () => {
       fetch(`${apiKey}search.php?s=${searchInput.value}`)
