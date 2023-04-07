@@ -6,13 +6,18 @@ body{
     background-size: cover;
     color: rgb(6, 2, 2);
     font-family: 'Source Sans Pro', sans-serif;
-
+    font-size: 1.5vmin;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 110vh;
+    width: 100vw;
 }
 
 header{
     background-color: rgba(0, 0, 0, 0.447);
     text-align: center;
-    height: 22vh;
+    height: 24vh;
 }
 
 header h1{
@@ -30,29 +35,35 @@ header h2{
 }
 
 #search{
+  text-align: center;
+  position: absolute; left: 300px; top: 55px;
+    background-color: rgb(0, 0, 0);
     margin-top: 0.5vh;
     color: rgb(255, 1, 1);
     background-color: rgb(0, 0, 0);
-    width: 40vw;
+    width: 85vh;
     height: 3vh;
+    border-radius: 30px;
 }
 #btn{
+  text-align: center;
+  position: absolute; left: 920px; top: 57px;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 1, 1);
     width: 100px;
-    height: 3vh;
+    height: 4vh;
     border-radius: 30px;
 }
 #filters{
   color: rgb(217, 5, 5);
   text-align: left;
-  position:relative; left:20px; top:-15px;
+  position:relative; left:20px; top:11px;
 
 }
 #filters input{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5);
-  width: 190px;
+  width: auto;
   height: 2.5vh;
   border-radius: 30px;
 
@@ -60,12 +71,12 @@ header h2{
 #filters button{
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5);
-  width: 100px;
+  width: auto;
   height: 2.5vh;
   border-radius: 30px;
 }
 #buttonMenu{
-  position:relative; left:-30px; top:-30px;
+  position:relative; left:-30px; top:20px;
   text-align: center;
 }
 #addedMeal{
@@ -80,28 +91,28 @@ header h2{
   height: 2.5vh;
 }
  .form-info input{
-  position: relative; left: 0px; top: -111px;
+  position: relative; left: 0px; top: -90px;
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5);  
-  width: 150px; 
+  width: 120px; 
   height: 3.5vh; 
   border-radius: 40px
 } 
 .dropdown button{
-  position: relative; left: 0px; top: -30px;
+  position: relative; left: 0px; top: -60px;
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5); 
-  width: 200px;
-  height: 50px;
-  border-radius: 20px;
+  width: auto;
+  height:6vh;
+  border-radius: 40px ;
 }
 #filtersDropDown{
-  position: relative; left: 0px; top: -30px;
+  position: relative; left: 0px; top: -60px;
   background-color: rgb(4, 2, 2);
   color: rgb(217, 5, 5); 
-  width: 200px;
-  height: 50px;
-  border-radius: 20px;
+  width: auto;
+  height: 6vh;
+  border-radius: 40px ;
 }
 #main {
         display: flex;
