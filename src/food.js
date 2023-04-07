@@ -29,7 +29,7 @@ cb()
 let events = [topTenBtn, myRecipe, myMealBtn, latestBtn]
 events.forEach((event, index) => {
     event.addEventListener("click", (e) => {
-        allListnerClears([fetchRandomTen, renderCreatedRecipe, renderMyMeals, latestFetch][index])
+        allClicks([fetchRandomTen, renderCreatedRecipe, renderMyMeals, latestFetch][index])
     })
 })
 
