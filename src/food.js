@@ -20,36 +20,70 @@ const newAppend = document.getElementById("addedMeal")
 const btnMenu = document.getElementById("buttonmenu")
 
 //SEARCH FILTERS EVENTLISTENERS
-topTenBtn.addEventListener("click", (e) => {
-    sidebar.innerHTML = "";
-    newAppend.innerHTML = ""
-    fetchRandomTen();
-})
-myRecipe.addEventListener("click", (e) => {
-    sidebar.innerHTML = "";
-    newAppend.innerHTML = ""
-    renderCreatedRecipe();
-})
-
-myMealBtn.addEventListener("click", (e) => {
-    sidebar.innerHTML = "";
-    newAppend.innerHTML = ""
-    renderMyMeals();
-})
-catForm.addEventListener("submit", (e) =>{
-    e.preventDefault();
-    fetchCatFilters();
+const allClicks = (cb) => { 
+  sidebar.innerHTML = "";
+newAppend.innerHTML = ""
+filtersDropDown.selectedIndex = 0 
+cb()
+}
+let events = [topTenBtn, myRecipe, myMealBtn, latestBtn]
+events.forEach((event, index) => {
+    event.addEventListener("click", (e) => {
+        allListnerClears([fetchRandomTen, renderCreatedRecipe, renderMyMeals, latestFetch][index])
+    })
 })
 
-ingForm.addEventListener("submit", (e) =>{
+const allSubmits = [searchform, catForm, ingForm, areaForm]
+const submitFnc = (cb, e) => {
     e.preventDefault();
-    fetchIngFilters();
+    filtersDropDown.selectedIndex = 0
+    cb()
+}
+allSubmits.forEach((submit, index) => {
+    submit.addEventListener("submit", (e) => {
+        submitFnc([fetchMeals, fetchCatFilters, fetchIngFilters, fetchAreaFilters][index], e)
+    })
 })
 
-areaForm.addEventListener("submit", (e) =>{
-    e.preventDefault();
-    fetchAreaFilters();
-})
+
+// latestBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   latestFetch();
+// });
+// topTenBtn.addEventListener("click", (e) => {
+//     sidebar.innerHTML = "";
+//     newAppend.innerHTML = ""
+//     fetchRandomTen();
+// })
+// myRecipe.addEventListener("click", (e) => {
+//     sidebar.innerHTML = "";
+//     newAppend.innerHTML = ""
+//     renderCreatedRecipe();
+// })
+
+// myMealBtn.addEventListener("click", (e) => {
+//     sidebar.innerHTML = "";
+//     newAppend.innerHTML = ""
+//     renderMyMeals();
+// })
+// catForm.addEventListener("submit", (e) =>{
+//     e.preventDefault();
+//     fetchCatFilters();
+// })
+
+// ingForm.addEventListener("submit", (e) =>{
+//     e.preventDefault();
+//     fetchIngFilters();
+// })
+
+// areaForm.addEventListener("submit", (e) =>{
+//     e.preventDefault();
+//     fetchAreaFilters();
+// })
+// searchform.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   fetchMeals();
+// });
  
 //DROPDOWN EVENT
 const filtersData = {
@@ -69,7 +103,7 @@ let key = (filtersData) => {
   
     filtersDropDown.appendChild(option);
 }
-filtersDropDown.addEventListener('click', clearAll);
+
 filtersDropDown.addEventListener('change', (event) => {
     switch (event.target.value) {
       case 'ingredients':
@@ -89,15 +123,10 @@ filtersDropDown.addEventListener('change', (event) => {
         fetchRandom();
         break;
       default:
-        // Clear cards and display all recipes
-        clearCards();
-        displayAllRecipes();
+    
         break;
     }
   });
-function clearAll() {
-  filtersDropDown.selectedIndex = 0;
-}
   // fetches
   const fetchMeals = () => {
       fetch(`${apiKey}search.php?s=${searchInput.value}`)
@@ -126,11 +155,6 @@ function clearAll() {
           });
         });
     };
-    
-    searchform.addEventListener("submit", (e) => {
-      e.preventDefault();
-      fetchMeals();
-    });
   const renderMeal = (meal) => {
       const card = document.createElement("div");
       card.classList.add("card");
@@ -189,11 +213,8 @@ function clearAll() {
     `;
     sidebar.append(card)
   }
+
   
-  latestBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    latestFetch();
-  });
   
   const fetchIngredients = () => {
   fetch(`${apiKey}list.php?i=list`)
