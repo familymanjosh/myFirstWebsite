@@ -5,7 +5,6 @@ body{
     background-attachment:fixed ;
     background-size: cover;
     color: rgb(6, 2, 2);
-
     font-family: 'Source Sans Pro', sans-serif;
 
 }
@@ -18,7 +17,6 @@ header{
 
 header h1{
     color: #cc000a;
-    /* font-family: 'Tilt Prism', cursive; */
     font-family: 'Great Vibes', cursive;
     font-size: 6vmin;
     margin: 1vmin;
